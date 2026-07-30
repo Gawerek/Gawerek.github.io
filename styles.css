@@ -1,0 +1,438 @@
+/* ---------- Design tokens ---------- */
+:root {
+  --ink-navy: #0E1621;
+  --ink-navy-light: #16202E;
+  --blueprint-blue: #4A8FE0;
+  --blueprint-blue-dim: #2E5A8F;
+  --amber: #E8A33D;
+  --paper: #ECE7DA;
+  --slate: #8B98A5;
+  --slate-dim: #5B6772;
+  --line: rgba(74, 143, 224, 0.35);
+
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "IBM Plex Sans", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+
+  --nav-width: 4.5rem;
+  --sheet-gap: 1px;
+}
+
+/* ---------- Reset ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+body {
+  background: var(--ink-navy);
+  color: var(--paper);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; }
+
+img, svg { display: block; max-width: 100%; }
+
+h1, h2, h3 { font-family: var(--font-display); font-weight: 600; letter-spacing: -0.01em; }
+
+.mono { font-family: var(--font-mono); }
+
+/* ---------- Focus ---------- */
+:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 3px;
+}
+
+/* ---------- Skip link ---------- */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--amber);
+  color: var(--ink-navy);
+  padding: 0.6rem 1rem;
+  z-index: 100;
+  font-family: var(--font-mono);
+}
+.skip-link:focus { left: 0.5rem; top: 0.5rem; }
+
+/* ---------- Side nav (sheet index) ---------- */
+.sheet-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: var(--nav-width);
+  border-right: 1px solid var(--line);
+  background: var(--ink-navy);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.25rem 0;
+}
+
+.sheet-nav__mark {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 1.5px solid var(--blueprint-blue);
+  border-radius: 50%;
+  position: relative;
+  margin-bottom: 2rem;
+  flex-shrink: 0;
+}
+.sheet-nav__mark::before, .sheet-nav__mark::after {
+  content: "";
+  position: absolute;
+  background: var(--amber);
+}
+.sheet-nav__mark::before { left: 50%; top: -6px; width: 1px; height: 6px; transform: translateX(-50%); }
+.sheet-nav__mark::after { top: 50%; left: -6px; width: 6px; height: 1px; transform: translateY(-50%); }
+
+.sheet-nav__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sheet-nav__link {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--slate);
+  text-decoration: none;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  letter-spacing: 0.08em;
+  transition: color 0.2s;
+}
+.sheet-nav__link[aria-current="true"],
+.sheet-nav__link:hover,
+.sheet-nav__link:focus-visible {
+  color: var(--amber);
+}
+
+/* ---------- Layout shell ---------- */
+main { margin-left: var(--nav-width); }
+
+.sheet {
+  position: relative;
+  min-height: 100vh;
+  padding: 3rem 3rem 5rem;
+  border-bottom: var(--sheet-gap) solid var(--line);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sheet--paper {
+  background: var(--paper);
+  color: var(--ink-navy);
+}
+
+.sheet__eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--amber);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.sheet--paper .sheet__eyebrow { color: var(--blueprint-blue-dim); }
+
+.sheet__title {
+  font-size: clamp(1.8rem, 4vw, 2.75rem);
+  margin-bottom: 1.25rem;
+}
+
+/* ---------- Registration marks (corners) ---------- */
+.reg-mark {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  opacity: 0.6;
+}
+.reg-mark::before, .reg-mark::after {
+  content: "";
+  position: absolute;
+  background: currentColor;
+}
+.reg-mark::before { top: 50%; left: 0; width: 100%; height: 1px; transform: translateY(-50%); }
+.reg-mark::after { left: 50%; top: 0; width: 1px; height: 100%; transform: translateX(-50%); }
+.reg-mark--tl { top: 1rem; left: 1rem; color: var(--blueprint-blue); }
+.reg-mark--tr { top: 1rem; right: 1rem; color: var(--blueprint-blue); }
+.reg-mark--bl { bottom: 1rem; left: 1rem; color: var(--blueprint-blue); }
+.reg-mark--br { bottom: 1rem; right: 1rem; color: var(--blueprint-blue); }
+.sheet--paper .reg-mark { color: var(--blueprint-blue-dim); }
+
+/* ---------- Title block ---------- */
+.title-block {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  border: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  display: grid;
+  grid-template-columns: auto auto;
+  min-width: 220px;
+}
+.title-block div {
+  padding: 0.35rem 0.6rem;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+.title-block div:nth-child(-n+2) { border-top: none; }
+.title-block div:nth-child(odd) { border-left: none; color: var(--slate); }
+.sheet--paper .title-block div:nth-child(odd) { color: var(--slate-dim); }
+
+/* ---------- Hero / Sheet 00 ---------- */
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.hero__name {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.05;
+}
+
+.hero__role {
+  font-family: var(--font-mono);
+  color: var(--blueprint-blue);
+  font-size: 1.05rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.hero__tagline {
+  max-width: 42ch;
+  color: var(--slate);
+}
+
+.hero__cta {
+  display: inline-flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.btn {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  padding: 0.7rem 1.2rem;
+  border: 1px solid var(--blueprint-blue);
+  color: var(--paper);
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+.btn:hover, .btn:focus-visible { background: var(--blueprint-blue); color: var(--ink-navy); }
+.btn--solid { background: var(--amber); border-color: var(--amber); color: var(--ink-navy); }
+.btn--solid:hover, .btn--solid:focus-visible { background: transparent; color: var(--amber); }
+
+/* ---------- Schematic (animated SVG) ---------- */
+.schematic { width: 100%; height: auto; }
+.schematic text {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  fill: var(--slate);
+}
+.schematic .node-box { fill: var(--ink-navy-light); stroke: var(--blueprint-blue); stroke-width: 1.5; }
+.schematic .node-box--accent { stroke: var(--amber); }
+.schematic .connector {
+  fill: none;
+  stroke: var(--blueprint-blue);
+  stroke-width: 1.5;
+  stroke-dasharray: 220;
+  stroke-dashoffset: 220;
+}
+.schematic.is-drawn .connector {
+  animation: draw-in 1.4s ease forwards;
+}
+.schematic .connector:nth-of-type(2) { animation-delay: 0.35s; }
+.schematic .connector:nth-of-type(3) { animation-delay: 0.7s; }
+
+@keyframes draw-in {
+  to { stroke-dashoffset: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .schematic .connector { stroke-dashoffset: 0; }
+}
+
+/* ---------- Reveal on scroll ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+/* ---------- About / Sheet 01 ---------- */
+.about__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.trajectory {
+  list-style: none;
+  border-left: 2px solid var(--blueprint-blue-dim);
+  padding-left: 1.5rem;
+}
+.trajectory li { position: relative; padding-bottom: 1.75rem; }
+.trajectory li:last-child { padding-bottom: 0; }
+.trajectory li::before {
+  content: "";
+  position: absolute;
+  left: -1.6875rem;
+  top: 0.35rem;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--blueprint-blue);
+}
+.trajectory li[data-status="current"]::before { background: var(--amber); }
+.trajectory__label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--blueprint-blue-dim);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+/* ---------- Projects / Sheet 02 ---------- */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  border: 1px solid var(--line);
+  padding: 1.5rem;
+  background: rgba(74, 143, 224, 0.04);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.project-card__num {
+  font-family: var(--font-mono);
+  color: var(--amber);
+  font-size: 0.8rem;
+}
+
+.project-card h3 { margin: 0.5rem 0 0.75rem; font-size: 1.25rem; }
+
+.project-card p { color: var(--slate); font-size: 0.95rem; flex-grow: 1; }
+
+.project-card__tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+}
+.project-card__tags li {
+  border: 1px solid var(--slate-dim);
+  padding: 0.15rem 0.5rem;
+  color: var(--slate);
+}
+
+.project-card__note {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--slate-dim);
+  margin-top: 0.75rem;
+}
+
+/* ---------- Stack / Sheet 03 — bill of materials ---------- */
+.bom {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+.bom caption { text-align: left; color: var(--blueprint-blue-dim); margin-bottom: 0.75rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; }
+.bom th, .bom td { border: 1px solid var(--line); padding: 0.6rem 0.75rem; text-align: left; }
+.sheet--paper .bom th, .sheet--paper .bom td { border-color: var(--slate); }
+.bom th { color: var(--blueprint-blue); font-weight: 600; }
+.sheet--paper .bom th { color: var(--blueprint-blue-dim); }
+.bom td:first-child { color: var(--amber); width: 2.5rem; }
+
+/* ---------- Certifications / Sheet 04 ---------- */
+.cert-list { list-style: none; display: grid; gap: 1rem; }
+.cert-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px dashed var(--line);
+  padding-bottom: 0.75rem;
+}
+.cert-list__status {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--amber);
+  text-transform: uppercase;
+}
+
+/* ---------- Contact / Sheet 05 ---------- */
+.contact__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  max-width: 640px;
+}
+.contact__item {
+  border: 1px solid var(--line);
+  padding: 1.25rem;
+}
+.contact__label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--blueprint-blue-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+.contact__value { font-size: 1.05rem; text-decoration: none; }
+.contact__value:hover, .contact__value:focus-visible { color: var(--blueprint-blue-dim); }
+
+.rev-note {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--slate-dim);
+  margin-top: 3rem;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .hero, .about__grid { grid-template-columns: 1fr; }
+  .hero__visual { order: -1; }
+}
+
+@media (max-width: 640px) {
+  :root { --nav-width: 3rem; }
+  .sheet { padding: 2.5rem 1.25rem 4rem; }
+  .sheet-nav__link { font-size: 0.65rem; }
+  .title-block { position: static; margin-top: 2rem; }
+  .bom { font-size: 0.75rem; }
+}

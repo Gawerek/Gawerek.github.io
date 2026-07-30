@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Michał — Cloud &amp; DevOps Tech Lead / AI-ML Infrastructure</title>
+<meta name="description" content="Michał — Cloud/DevOps Tech Lead working across AWS and Azure infrastructure-as-code, extending into AI/ML infrastructure.">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav class="sheet-nav" aria-label="Sheet index">
+  <span class="sheet-nav__mark" aria-hidden="true"></span>
+  <ul class="sheet-nav__list">
+    <li><a class="sheet-nav__link" href="#cover">00 COVER</a></li>
+    <li><a class="sheet-nav__link" href="#about">01 ABOUT</a></li>
+    <li><a class="sheet-nav__link" href="#projects">02 PROJECTS</a></li>
+    <li><a class="sheet-nav__link" href="#stack">03 STACK</a></li>
+    <li><a class="sheet-nav__link" href="#now">04 NOW</a></li>
+    <li><a class="sheet-nav__link" href="#contact">05 CONTACT</a></li>
+  </ul>
+</nav>
+
+<main id="main">
+
+  <!-- ================= 00 COVER ================= -->
+  <section id="cover" class="sheet" aria-labelledby="cover-title">
+    <span class="reg-mark reg-mark--tl" aria-hidden="true"></span>
+    <span class="reg-mark reg-mark--tr" aria-hidden="true"></span>
+    <span class="reg-mark reg-mark--bl" aria-hidden="true"></span>
+    <span class="reg-mark reg-mark--br" aria-hidden="true"></span>
+
+    <div class="hero">
+      <div>
+        <p class="sheet__eyebrow mono">Sheet 00 — Cover</p>
+        <h1 id="cover-title" class="hero__name"><!-- TODO: confirm first-name-only vs full name -->Michał</h1>
+        <p class="hero__role mono">Cloud / DevOps Tech Lead — extending into AI/ML Infrastructure</p>
+        <p class="hero__tagline">Multi-cloud infrastructure-as-code across AWS and Azure — provisioning pipelines, golden images, and the discipline to run both like a single system. Now applying the same rigor to AI/ML infrastructure.</p>
+        <div class="hero__cta">
+          <a class="btn btn--solid" href="#projects">View projects</a>
+          <a class="btn" href="#contact">Get in touch</a>
+        </div>
+      </div>
+
+      <div class="hero__visual">
+        <svg class="schematic" viewBox="0 0 480 260" role="img" aria-label="Diagram: AWS and Azure feed a provisioning pipeline, which builds a golden image, which deploys to a virtual machine">
+          <rect class="node-box" x="10" y="20" width="90" height="40" rx="3"/>
+          <text x="55" y="44" text-anchor="middle">AWS</text>
+          <rect class="node-box" x="10" y="120" width="90" height="40" rx="3"/>
+          <text x="55" y="144" text-anchor="middle">AZURE</text>
+
+          <path class="connector" d="M100,40 C150,40 150,90 190,90"/>
+          <path class="connector" d="M100,140 C150,140 150,90 190,90"/>
+
+          <rect class="node-box node-box--accent" x="190" y="70" width="110" height="40" rx="3"/>
+          <text x="245" y="94" text-anchor="middle">PIPELINE</text>
+
+          <path class="connector" d="M300,90 C340,90 340,90 380,90"/>
+
+          <rect class="node-box" x="380" y="20" width="90" height="40" rx="3"/>
+          <text x="425" y="44" text-anchor="middle">GOLDEN IMG</text>
+
+          <path class="connector" d="M425,60 C425,110 425,140 425,160"/>
+
+          <rect class="node-box" x="380" y="160" width="90" height="40" rx="3"/>
+          <text x="425" y="184" text-anchor="middle">DEPLOYED VM</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="title-block mono">
+      <div>NAME</div><div><!-- TODO --> Michał</div>
+      <div>SHEET</div><div>00 / 05</div>
+      <div>REV</div><div>A</div>
+    </div>
+  </section>
+
+  <!-- ================= 01 ABOUT ================= -->
+  <section id="about" class="sheet sheet--paper" aria-labelledby="about-title">
+    <span class="reg-mark reg-mark--tl" aria-hidden="true"></span>
+    <span class="reg-mark reg-mark--tr" aria-hidden="true"></span>
+    <span class="reg-mark reg-mark--bl" aria-hidden="true"></span>
+    <span class="reg-mark reg-mark--br" aria-hidden="true"></span>
+
+    <p class="sheet__eyebrow mono">Sheet 01 — About</p>
+    <h2 id="about-title" class="sheet__title reveal">Cloud infra now, AI/ML infra next</h2>
+
+    <div class="about__grid">
+      <div class="reveal">
+        <p>I lead a two-person cloud team as an independent contractor, currently engaged at Novo Nordisk, working across AWS and Azure. My focus is treating infrastructure as something you draft, review, and version — not something you click together by hand.</p>
+        <p style="margin-top:1rem;">I'm extending that same discipline into AI/ML infrastructure: applying infra-as-code rigor to the systems that run models, not just the systems that run VMs. That's the throughline behind the Forward Deployed Engineer direction below — not a career pivot, an extension of the same practice.</p>
+      </div>
+
+      <ol class="trajectory reveal">
+        <li data-status="current">
+          <span class="trajectory__label">Now</span>
+          Cloud / DevOps Tech Lead — multi-cloud provisioning &amp; golden-image platforms (AWS + Azure)
+        </li>
+        <li data-status="progress">
+          <span class="trajectory__label">In progress</span>
+          AI/ML-focused certifications
+        </li>
+        <li data-status="future">
+          <span class="trajectory__label">Exploring</span>
+          Forward Deployed Engineer model — infra discipline applied directly inside client environments, with AI/ML systems in scope
+        </li>
+      </ol>
+    </div>
+
+    <div class="title-block mono">
+      <div>SHEET</div><div>01 / 05</div>
+      <div>REV</div><div>A</div>
+    </div>
+  </section>
+
+  <!-- ================= 02 PROJECTS ================= -->
+  <section id="projects" class="sheet" aria-labelledby="projects-title">
+    <span class="reg-mark reg-mark--tl" aria-hidden="true"></span>
+    <span class="reg-mark reg-mark--tr" aria-hidden="true"></span>
+    <span class="reg-mark reg-mark--bl" aria-hidden="true"></span>
+    <span class="reg-mark reg-mark--br" aria-hidden="true"></span>
+
+    <p class="sheet__eyebrow mono">Sheet 02 — Projects</p>
+    <h2 id="projects-title" class="sheet__title reveal">Selected work</h2>
+
+    <div class="project-grid reveal">
+      <article class="project-card">
+        <span class="project-card__num mono">01</span>
+        <h3>MCITI</h3>
+        <p>Multi-cloud VM provisioning pipeline spanning AWS and Azure — one of two platforms I lead on the cloud team. Infrastructure defined and versioned end to end, from network to configured host.</p>
+        <ul class="project-card__tags">
+          <li>Terraform</li><li>Bicep</li><li>Ansible</li><li>PowerShell DSC</li><li>GitHub Actions</li><li>Azure DevOps</li>
+        </ul>
+        <p class="project-card__note">Client engagement — described at a high level; architecture detail withheld.</p>
+      </article>
+
+      <article class="project-card">
+        <span class="project-card__num mono">02</span>
+        <h3>GIPS</h3>
+        <p>Multi-cloud golden image platform (AWS + Azure) — standardized, versioned base images feeding the provisioning pipeline above, reducing drift between clouds.</p>
+        <ul class="project-card__tags">
+          <li>Terraform</li><li>Bicep</li><li>Ansible</li><li>PowerShell DSC</li>
+        </ul>
+        <p class="project-card__note">Client engagement — described at a high level; architecture detail withheld.</p>
+      </article>
+
+      <article class="project-card">
+        <span class="project-card__num mono">03</span>
+        <h3>Legal document automation pipeline</h3>
+        <p>An independent build for a law-firm client: an automated pipeline that ingests, processes, and generates legal documents, orchestrated end to end with a Postgres-backed workflow engine.</p>
+        <ul class="project-card__tags">
+          <li>n8n</li><li>PostgreSQL</li><li>Docker</li><li>Claude API</li>
+        </ul>
+        <p class="project-card__note">Independent engagement — client name withheld pending confirmation.</p>
+      </article>
+    </div>
+
+    <div class="title-block mono">
+      <div>SHEET</div><div>02 / 05</div>
+      <div>REV</div><div>A</div>
+    </div>
+  </section>
+
+  <!-- ================= 03 STACK ================= -->
+  <section id="stack" class="sheet sheet--paper" aria-labelledby="stack-title">
+    <span class="reg-mark reg-mark--tl" aria-hidden="true"></span>
+    <span class="reg-mark reg-mark--tr" aria-hidden="true"></span>
+    <span class="reg-mark reg-mark--bl" aria-hidden="true"></span>
+    <span class="reg-mark reg-mark--br" aria-hidden="true"></span>
+
+    <p class="sheet__eyebrow mono">Sheet 03 — Stack</p>
+    <h2 id="stack-title" class="sheet__title reveal">Bill of materials</h2>
+
+    <table class="bom reveal">
+      <caption>Tools &amp; platforms in active use</caption>
+      <thead>
+        <tr><th scope="col">Item</th><th scope="col">Component</th><th scope="col">Category</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>01</td><td>AWS</td><td>Cloud platform</td></tr>
+        <tr><td>02</td><td>Azure</td><td>Cloud platform</td></tr>
+        <tr><td>03</td><td>Terraform</td><td>Infrastructure as code</td></tr>
+        <tr><td>04</td><td>Bicep</td><td>Infrastructure as code</td></tr>
+        <tr><td>05</td><td>Ansible</td><td>Configuration management</td></tr>
+        <tr><td>06</td><td>PowerShell DSC</td><td>Configuration management</td></tr>
+        <tr><td>07</td><td>GitHub Actions</td><td>CI/CD</td></tr>
+        <tr><td>08</td><td>Azure DevOps Pipelines</td><td>CI/CD</td></tr>
+        <tr><td>09</td><td>Python</td><td>Automation / tooling</td></tr>
+        <tr><td>10</td><td>n8n</td><td>Workflow orchestration</td></tr>
+        <tr><td>11</td><td>PostgreSQL</td><td>Data store</td></tr>
+        <tr><td>12</td><td>Docker</td><td>Containerization</td></tr>
+        <tr><td>13</td><td>Claude API</td><td>AI / ML</td></tr>
+      </tbody>
+    </table>
+
+    <div class="title-block mono">
+      <div>SHEET</div><div>03 / 05</div>
+      <div>REV</div><div>A</div>
+    </div>
+  </section>
+
+  <!-- ================= 04 NOW / CERTIFICATIONS ================= -->
+  <section id="now" class="sheet" aria-labelledby="now-title">
+    <span class="reg-mark reg-mark--tl" aria-hidden="true"></span>
+    <span class="reg-mark reg-mark--tr" aria-hidden="true"></span>
+    <span class="reg-mark reg-mark--bl" aria-hidden="true"></span>
+    <span class="reg-mark reg-mark--br" aria-hidden="true"></span>
+
+    <p class="sheet__eyebrow mono">Sheet 04 — Now</p>
+    <h2 id="now-title" class="sheet__title reveal">Currently building toward</h2>
+
+    <ul class="cert-list reveal">
+      <li>
+        <span>AI/ML-focused certification track</span>
+        <span class="cert-list__status mono">In progress</span>
+      </li>
+      <li>
+        <span>Forward Deployed Engineer positioning — infra discipline applied inside AI/ML client environments</span>
+        <span class="cert-list__status mono">Exploring</span>
+      </li>
+    </ul>
+
+    <div class="title-block mono">
+      <div>SHEET</div><div>04 / 05</div>
+      <div>REV</div><div>A</div>
+    </div>
+  </section>
+
+  <!-- ================= 05 CONTACT ================= -->
+  <section id="contact" class="sheet sheet--paper" aria-labelledby="contact-title">
+    <span class="reg-mark reg-mark--tl" aria-hidden="true"></span>
+    <span class="reg-mark reg-mark--tr" aria-hidden="true"></span>
+    <span class="reg-mark reg-mark--bl" aria-hidden="true"></span>
+    <span class="reg-mark reg-mark--br" aria-hidden="true"></span>
+
+    <p class="sheet__eyebrow mono">Sheet 05 — Contact</p>
+    <h2 id="contact-title" class="sheet__title reveal">Get in touch</h2>
+
+    <!-- TODO: replace all three placeholders below with real contact details before publishing -->
+    <div class="contact__grid reveal">
+      <div class="contact__item">
+        <span class="contact__label">Email</span>
+        <a class="contact__value" href="mailto:hello@example.com">hello@example.com</a>
+      </div>
+      <div class="contact__item">
+        <span class="contact__label">LinkedIn</span>
+        <a class="contact__value" href="https://linkedin.com/in/REPLACE_ME" target="_blank" rel="noopener">linkedin.com/in/REPLACE_ME</a>
+      </div>
+      <div class="contact__item">
+        <span class="contact__label">GitHub</span>
+        <a class="contact__value" href="https://github.com/REPLACE_ME" target="_blank" rel="noopener">github.com/REPLACE_ME</a>
+      </div>
+    </div>
+
+    <p class="rev-note">Drawn with Claude · Rev A · <span id="build-date"></span></p>
+
+    <div class="title-block mono">
+      <div>SHEET</div><div>05 / 05</div>
+      <div>REV</div><div>A</div>
+    </div>
+  </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
