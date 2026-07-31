@@ -33,7 +33,12 @@ body { margin: 0; }
 }
 .nav {
   max-width: var(--content-width); margin: 0 auto;
-  padding-left: 12%; padding-right: 8%;
+  /* calc() against --content-width, not a bare percentage: percentage
+     padding resolves against the parent's (full-viewport) width, not this
+     element's own max-width, which was silently ballooning the gutter on
+     wide screens and squeezing the actual content inward. */
+  padding-left: calc(var(--content-width) * 0.12);
+  padding-right: calc(var(--content-width) * 0.08);
   flex-wrap: wrap;
 }
 .nav a[aria-current='location'] { color: var(--color-accent); }
@@ -42,7 +47,10 @@ body { margin: 0; }
 }
 .progress-fill { height: 2px; width: 0%; background: var(--color-accent); }
 
-main { max-width: var(--content-width); margin: 0 auto; padding: 64px 8% 0 12%; }
+main {
+  max-width: var(--content-width); margin: 0 auto;
+  padding: 64px calc(var(--content-width) * 0.08) 0 calc(var(--content-width) * 0.12);
+}
 
 /* — fading divider between sections — */
 .divider {
