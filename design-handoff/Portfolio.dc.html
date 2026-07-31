@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Michał — Cloud / DevOps Tech Lead</title>
+<meta name="description" content="Michał — Cloud/DevOps Tech Lead specializing in multi-cloud infrastructure-as-code (AWS, Azure), extending into AI/ML infrastructure.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2312190f'/%3E%3Ctext x='32' y='42' font-family='Arial' font-size='30' font-weight='600' fill='%231f7a43' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/nocturne-890f53e2-c35c-4a7c-8d48-2bff55ef596e/styles.css">
+  <script src="_ds/nocturne-890f53e2-c35c-4a7c-8d48-2bff55ef596e/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <style>
+    /* Deep-forest green accent + warm earthy ground, swapped in over Nocturne's blurple/blue-grey base */
+    :root {
+      --color-bg: #12190f;
+      --color-surface: #1b2418;
+      --color-text: #ece9e0;
+      --color-accent: #1f7a43;
+      --color-accent-2: #2c8f52;
+      --color-accent-100: #e3f4ea;
+      --color-accent-200: #c3e6d0;
+      --color-accent-300: #96d1ac;
+      --color-accent-400: #5cb37e;
+      --color-accent-500: #2f9d5c;
+      --color-accent-600: #1f7a43;
+      --color-accent-700: #176b39;
+      --color-accent-800: #0f4526;
+      --color-accent-900: #0a301b;
+      --color-accent-2-100: #e3f4ea;
+      --color-accent-2-200: #c3e6d0;
+      --color-accent-2-300: #96d1ac;
+      --color-accent-2-400: #5cb37e;
+      --color-accent-2-500: #2f9d5c;
+      --color-accent-2-600: #1f7a43;
+      --color-accent-2-700: #176b39;
+      --color-accent-2-800: #0f4526;
+      --color-accent-2-900: #0a301b;
+      --color-neutral-100: #f2f1e9;
+      --color-neutral-200: #e0e0d4;
+      --color-neutral-300: #c7c8ba;
+      --color-neutral-400: #a9ac9c;
+      --color-neutral-500: #8b8f7d;
+      --color-neutral-600: #6d7160;
+      --color-neutral-700: #52564a;
+      --color-neutral-800: #393c33;
+      --color-neutral-900: #24261f;
+    }
+    @keyframes floatY { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+    @keyframes dialogIn { from { opacity: 0; transform: scale(0.96) translateY(8px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+  </style>
+</helmet>
+
+<nav class="nav" style="{{ navBarStyle }}">
+  <span class="nav-brand">Michał</span>
+  <a href="#about" style="{{ navLinkStyleAbout }}">About</a>
+  <a href="#work" style="{{ navLinkStyleWork }}">Work</a>
+  <a href="#stack" style="{{ navLinkStyleStack }}">Stack</a>
+  <a href="#now" style="{{ navLinkStyleNow }}">Now</a>
+  <a href="#contact" style="{{ navLinkStyleContact }}">Contact</a>
+  <a href="./resume.pdf" download class="btn btn-ghost" style="padding:6px 12px;font-size:12px;margin-left:8px;">Resume ↓</a>
+</nav>
+<div style="position:sticky;top:0;z-index:51;height:2px;background:var(--color-neutral-800);"><div ref="{{ refProgress }}" style="height:2px;width:0%;background:var(--color-accent);"></div></div>
+
+<main style="max-width:760px;margin:0 auto;padding:64px 8% 0 12%;">
+
+  <section id="hero" ref="{{ refHero }}" style="padding:24px 0 72px;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(500px circle at var(--mx,50%) var(--my,20%), color-mix(in srgb, var(--color-accent) 18%, transparent), transparent 70%);"></div>
+    <div>
+      <p style="font-family:var(--font-heading);font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent);margin:0 0 12px;">Cloud / DevOps Tech Lead — extending into AI/ML Infrastructure</p>
+      <h1 style="font-size:52px;line-height:1.08;margin:0 0 16px;">Michał</h1>
+      <p style="max-width:46ch;color:var(--color-neutral-400);font-size:16px;margin:0 0 28px;">Multi-cloud infrastructure-as-code across AWS and Azure — provisioning pipelines and golden images, built with the same discipline I'm now bringing to AI/ML infrastructure.</p>
+      <div style="display:flex;gap:var(--space-3);">
+        <a href="#work" class="btn btn-primary">View work</a>
+        <a href="#contact" class="btn btn-secondary">Get in touch</a>
+      </div>
+    </div>
+    <div class="lighten" style="width:160px;height:160px;animation:floatY 5s ease-in-out infinite;">
+      <image-slot id="hero-photo" shape="circle" style="width:160px;height:160px;" placeholder="Drop a photo"></image-slot>
+    </div>
+  </section>
+
+  <div style="height:1px;background:linear-gradient(to right, transparent, var(--color-divider) 20%, var(--color-divider) 80%, transparent);"></div>
+  <section id="about" ref="{{ refAbout }}" style="padding:24px 0 72px;position:relative;">
+    <span style="position:absolute;left:-40px;top:26px;font-family:var(--font-heading);font-size:12px;color:var(--color-neutral-700);">01</span>
+    <h6 style="color:var(--color-neutral-600);margin:0 0 6px;">About</h6>
+    <h2 style="font-size:30px;margin:0 0 24px;">Cloud infra now, AI/ML infra next</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:36px;">
+      <div>
+        <p style="color:var(--color-neutral-300);margin:0 0 14px;">I lead a two-person cloud team as an independent contractor, currently engaged at Novo Nordisk, working across AWS and Azure. My focus is treating infrastructure as something you draft, review, and version — not something you click together by hand.</p>
+        <p style="color:var(--color-neutral-300);margin:0;">I'm extending that same discipline into AI/ML infrastructure: applying infra-as-code rigor to the systems that run models, not just the systems that run VMs. That's the throughline behind the Forward Deployed Engineer direction below — not a career pivot, an extension of the same practice.</p>
+      </div>
+      <ol style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:22px;">
+        <li style="position:relative;padding-left:22px;border-left:1px solid var(--color-divider);">
+          <span class="tag tag-accent">Now</span>
+          <p style="margin:8px 0 0;color:var(--color-text);font-size:14px;">Cloud / DevOps Tech Lead — multi-cloud provisioning &amp; golden-image platforms (AWS + Azure)</p>
+        </li>
+        <li style="position:relative;padding-left:22px;border-left:1px solid var(--color-divider);">
+          <span class="tag tag-outline">In progress</span>
+          <p style="margin:8px 0 0;color:var(--color-text);font-size:14px;">AI/ML-focused certifications</p>
+        </li>
+        <li style="position:relative;padding-left:22px;border-left:1px solid var(--color-divider);">
+          <span class="tag tag-outline">Exploring</span>
+          <p style="margin:8px 0 0;color:var(--color-text);font-size:14px;">Forward Deployed Engineer model — infra discipline applied directly inside client environments, with AI/ML systems in scope</p>
+        </li>
+      </ol>
+    </div>
+    <div style="margin-top:36px;">
+      <p style="font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-neutral-600);margin:0 0 14px;">Proficiency</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px 32px;">
+        <sc-for list="{{ skills }}" as="s" hint-placeholder-count="5">
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;margin:0 0 6px;"><span style="color:var(--color-text);">{{ s.name }}</span><span style="color:var(--color-neutral-500);">{{ s.level }}</span></div>
+            <div style="height:4px;border-radius:var(--radius-sm);background:var(--color-neutral-800);overflow:hidden;">
+              <div style="{{ s.barStyle }}"></div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <div style="height:1px;background:linear-gradient(to right, transparent, var(--color-divider) 20%, var(--color-divider) 80%, transparent);"></div>
+  <section id="work" ref="{{ refWork }}" style="padding:24px 0 72px;position:relative;">
+    <span style="position:absolute;left:-40px;top:26px;font-family:var(--font-heading);font-size:12px;color:var(--color-neutral-700);">02</span>
+    <h6 style="color:var(--color-neutral-600);margin:0 0 6px;">Selected work</h6>
+    <h2 style="font-size:30px;margin:0 0 24px;">Projects</h2>
+    <p style="color:var(--color-neutral-500);font-size:13px;margin:0 0 20px;">Click a project for details.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:var(--space-4);">
+      <sc-for list="{{ projects }}" as="p" hint-placeholder-count="3">
+        <article class="card" style="cursor:pointer;transition:transform 0.2s ease,box-shadow 0.2s ease;" style-hover="transform:translateY(-3px);box-shadow:var(--shadow-md);" onClick="{{ p.open }}">
+          <span class="card-kicker">{{ p.kicker }}</span>
+          <h3 class="card-title">{{ p.title }}</h3>
+          <p class="card-body">{{ p.summary }}</p>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;">
+            <sc-for list="{{ p.tags }}" as="t" hint-placeholder-count="4">
+              <span class="tag tag-neutral">{{ t }}</span>
+            </sc-for>
+          </div>
+          <p class="card-meta">{{ p.meta }}</p>
+          <span class="btn btn-ghost" style="margin-top:12px;padding:6px 10px;font-size:12px;">View details →</span>
+        </article>
+      </sc-for>
+    </div>
+  </section>
+
+  <sc-if value="{{ activeProject }}">
+    <div class="dialog-backdrop" onClick="{{ closeProject }}" style="position:fixed;inset:0;z-index:100;">
+      <div class="dialog" onClick="{{ stopClick }}" style="max-width:520px;animation:dialogIn 0.25s ease;">
+        <p class="card-kicker">{{ activeProject.kicker }}</p>
+        <h3 class="dialog-title">{{ activeProject.title }}</h3>
+        <div class="dialog-body">
+          <p style="color:var(--color-neutral-300);margin:0 0 16px;">{{ activeProject.detail }}</p>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;">
+            <sc-for list="{{ activeProject.tags }}" as="t" hint-placeholder-count="4">
+              <span class="tag tag-neutral">{{ t }}</span>
+            </sc-for>
+          </div>
+          <p class="text-muted" style="font-size:12px;margin:0;">{{ activeProject.meta }}</p>
+        </div>
+        <div class="dialog-actions">
+          <a href="{{ activeProject.repoUrl }}" target="_blank" rel="noopener" class="btn btn-secondary">Repo (soon)</a>
+          <a href="{{ activeProject.demoUrl }}" target="_blank" rel="noopener" class="btn btn-secondary">Live demo (soon)</a>
+          <button class="btn btn-primary" onClick="{{ closeProject }}">Close</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <div style="height:1px;background:linear-gradient(to right, transparent, var(--color-divider) 20%, var(--color-divider) 80%, transparent);"></div>
+  <section id="stack" ref="{{ refStack }}" style="padding:24px 0 72px;position:relative;">
+    <span style="position:absolute;left:-40px;top:26px;font-family:var(--font-heading);font-size:12px;color:var(--color-neutral-700);">03</span>
+    <h6 style="color:var(--color-neutral-600);margin:0 0 6px;">Stack</h6>
+    <h2 style="font-size:30px;margin:0 0 24px;">Tools &amp; platforms in active use</h2>
+    <div style="display:flex;flex-direction:column;gap:18px;">
+      <div>
+        <p style="font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-neutral-600);margin:0 0 8px;">Cloud &amp; IaC</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;"><span class="tag tag-accent">AWS</span><span class="tag tag-accent">Azure</span><span class="tag tag-neutral">Terraform</span><span class="tag tag-neutral">Bicep</span></div>
+      </div>
+      <div>
+        <p style="font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-neutral-600);margin:0 0 8px;">Config &amp; CI/CD</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;"><span class="tag tag-neutral">Ansible</span><span class="tag tag-neutral">PowerShell DSC</span><span class="tag tag-neutral">GitHub Actions</span><span class="tag tag-neutral">Azure DevOps Pipelines</span></div>
+      </div>
+      <div>
+        <p style="font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--color-neutral-600);margin:0 0 8px;">Automation &amp; data</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;"><span class="tag tag-neutral">Python</span><span class="tag tag-neutral">n8n</span><span class="tag tag-neutral">PostgreSQL</span><span class="tag tag-neutral">Docker</span><span class="tag tag-accent-2">Claude API</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div style="height:1px;background:linear-gradient(to right, transparent, var(--color-divider) 20%, var(--color-divider) 80%, transparent);"></div>
+  <section id="now" ref="{{ refNow }}" style="padding:24px 0 72px;position:relative;">
+    <span style="position:absolute;left:-40px;top:26px;font-family:var(--font-heading);font-size:12px;color:var(--color-neutral-700);">04</span>
+    <h6 style="color:var(--color-neutral-600);margin:0 0 6px;">Now</h6>
+    <h2 style="font-size:30px;margin:0 0 24px;">Currently building toward</h2>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding-bottom:var(--space-4);">
+      <span style="color:var(--color-text);">AI/ML-focused certification track</span>
+      <span class="tag tag-outline">In progress</span>
+    </div>
+    <div style="height:1px;background:linear-gradient(to right, transparent, var(--color-divider) 20%, var(--color-divider) 80%, transparent);margin:var(--space-4) 0;"></div>
+    <blockquote style="margin:0;padding:0 0 0 18px;border-left:2px solid var(--color-accent);">
+      <p style="font-size:20px;line-height:1.4;color:var(--color-accent-300);margin:0 0 10px;font-family:var(--font-heading);">Forward Deployed Engineer positioning — infra discipline applied inside AI/ML client environments.</p>
+      <span class="tag tag-outline">Exploring</span>
+    </blockquote>
+  </section>
+
+  <div style="height:1px;background:linear-gradient(to right, transparent, var(--color-divider) 20%, var(--color-divider) 80%, transparent);"></div>
+  <section id="contact" ref="{{ refContact }}" style="padding:24px 0 96px;position:relative;">
+    <span style="position:absolute;left:-40px;top:26px;font-family:var(--font-heading);font-size:12px;color:var(--color-neutral-700);">05</span>
+    <h6 style="color:var(--color-neutral-600);margin:0 0 6px;">Contact</h6>
+    <h2 style="font-size:30px;margin:0 0 24px;">Get in touch</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:var(--space-3);max-width:600px;">
+      <div class="card" style="transition:transform 0.2s ease,box-shadow 0.2s ease;" style-hover="transform:translateY(-3px);box-shadow:var(--shadow-md);">
+        <span class="card-kicker">Email</span>
+        <a href="mailto:hello@example.com" style="color:var(--color-text);display:flex;align-items:center;gap:8px;"><svg width="16" height="16" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16"><rect x="32" y="56" width="192" height="144" rx="8"/><path d="M32 64l96 88 96-88"/></svg>hello@example.com</a>
+        <button onClick="{{ copyEmail }}" class="btn btn-ghost" style="margin-top:10px;padding:4px 10px;font-size:11px;">{{ copyLabel }}</button>
+      </div>
+      <div class="card" style="transition:transform 0.2s ease,box-shadow 0.2s ease;" style-hover="transform:translateY(-3px);box-shadow:var(--shadow-md);">
+        <span class="card-kicker">LinkedIn</span>
+        <a href="https://linkedin.com/in/REPLACE_ME" target="_blank" rel="noopener" style="color:var(--color-text);display:flex;align-items:center;gap:8px;"><svg width="16" height="16" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"><path d="M96 160L192 64"/><path d="M120 64h72v72"/></svg>linkedin.com/in/REPLACE_ME</a>
+      </div>
+      <div class="card" style="transition:transform 0.2s ease,box-shadow 0.2s ease;" style-hover="transform:translateY(-3px);box-shadow:var(--shadow-md);">
+        <span class="card-kicker">GitHub</span>
+        <a href="https://github.com/REPLACE_ME" target="_blank" rel="noopener" style="color:var(--color-text);display:flex;align-items:center;gap:8px;"><svg width="16" height="16" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"><path d="M96 160L192 64"/><path d="M120 64h72v72"/></svg>github.com/REPLACE_ME</a>
+      </div>
+    </div>
+    <p class="text-muted" style="font-size:11px;margin-top:44px;">Rev A · {{ buildDate }}</p>
+  </section>
+
+</main>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { activeId: 'hero', activeProjectId: null, copyLabel: 'Copy email' };
+  skills = [
+    { name: 'Terraform / Bicep', level: 'Advanced', pct: 90 },
+    { name: 'AWS / Azure', level: 'Advanced', pct: 88 },
+    { name: 'Ansible / PowerShell DSC', level: 'Advanced', pct: 82 },
+    { name: 'CI/CD (GitHub Actions, Azure DevOps)', level: 'Advanced', pct: 85 },
+    { name: 'Python & automation tooling', level: 'Proficient', pct: 72 }
+  ].map((s) => ({ ...s, barStyle: { width: s.pct + '%', height: '100%', borderRadius: 'var(--radius-sm)', background: 'var(--color-accent)' } }));
+  copyEmail = () => {
+    navigator.clipboard.writeText('hello@example.com').then(() => {
+      this.setState({ copyLabel: 'Copied!' });
+      setTimeout(() => this.setState({ copyLabel: 'Copy email' }), 1800);
+    });
+  };
+  refProgress = (el) => { if (el) this.progressEl = el; };
+  refHero = (el) => {
+    if (!el || this.heroEl) return;
+    this.heroEl = el;
+    el.addEventListener('pointermove', (e) => {
+      const rect = el.getBoundingClientRect();
+      el.style.setProperty('--mx', (e.clientX - rect.left) + 'px');
+      el.style.setProperty('--my', (e.clientY - rect.top) + 'px');
+    });
+  };
+  sectionEls = {};
+  stopClick = (e) => e.stopPropagation();
+  closeProject = () => this.setState({ activeProjectId: null });
+
+  projectData = [
+    {
+      id: 'mciti', kicker: '01', title: 'MCITI',
+      summary: 'Multi-cloud VM provisioning pipeline spanning AWS and Azure — one of two platforms I lead on the cloud team.',
+      detail: 'Multi-cloud VM provisioning pipeline spanning AWS and Azure — one of two platforms I lead on the cloud team. Infrastructure defined and versioned end to end, from network to configured host.',
+      tags: ['Terraform', 'Bicep', 'Ansible', 'PowerShell DSC', 'GitHub Actions', 'Azure DevOps'],
+      meta: 'Client engagement — described at a high level; architecture detail withheld.',
+      repoUrl: '#', demoUrl: '#'
+    },
+    {
+      id: 'gips', kicker: '02', title: 'GIPS',
+      summary: 'Multi-cloud golden image platform (AWS + Azure) — standardized, versioned base images feeding the pipeline above.',
+      detail: 'Multi-cloud golden image platform (AWS + Azure) — standardized, versioned base images feeding the provisioning pipeline above, reducing drift between clouds.',
+      tags: ['Terraform', 'Bicep', 'Ansible', 'PowerShell DSC'],
+      meta: 'Client engagement — described at a high level; architecture detail withheld.',
+      repoUrl: '#', demoUrl: '#'
+    },
+    {
+      id: 'legal', kicker: '03', title: 'Legal document automation pipeline',
+      summary: 'An independent build for a law-firm client: an automated pipeline that ingests, processes, and generates legal documents.',
+      detail: 'An independent build for a law-firm client: an automated pipeline that ingests, processes, and generates legal documents, orchestrated end to end with a Postgres-backed workflow engine.',
+      tags: ['n8n', 'PostgreSQL', 'Docker', 'Claude API'],
+      meta: 'Independent engagement — client name withheld pending confirmation.',
+      repoUrl: '#', demoUrl: '#'
+    }
+  ];
+
+  refAbout = (el) => { if (el) this.sectionEls.about = el; };
+  refWork = (el) => { if (el) this.sectionEls.work = el; };
+  refStack = (el) => { if (el) this.sectionEls.stack = el; };
+  refNow = (el) => { if (el) this.sectionEls.now = el; };
+  refContact = (el) => { if (el) this.sectionEls.contact = el; };
+
+  componentDidMount() {
+    setTimeout(() => {
+      if (!('IntersectionObserver' in window)) return;
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) this.setState({ activeId: entry.target.id });
+        });
+      }, { rootMargin: '-40% 0px -40% 0px' });
+      Object.values(this.sectionEls).forEach((el) => observer.observe(el));
+    }, 50);
+
+    this.onScroll = () => {
+      if (!this.progressEl) return;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = max > 0 ? Math.min(100, (window.scrollY / max) * 100) : 0;
+      this.progressEl.style.width = pct + '%';
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    this.onScroll();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll);
+  }
+
+  renderVals() {
+    const { activeId, activeProjectId } = this.state;
+    const navLink = (id) => `color:${activeId === id ? 'var(--color-accent)' : 'inherit'};`;
+    const projects = this.projectData.map((p) => ({ ...p, open: () => this.setState({ activeProjectId: p.id }) }));
+    const activeProject = activeProjectId ? projects.find((p) => p.id === activeProjectId) : null;
+    return {
+      projects,
+      activeProject,
+      closeProject: this.closeProject,
+      stopClick: this.stopClick,
+      navBarStyle: 'position:sticky;top:0;z-index:50;padding-left:12%;padding-right:8%;background:color-mix(in srgb, var(--color-bg) 90%, transparent);backdrop-filter:blur(6px);',
+      navLinkStyleAbout: navLink('about'),
+      navLinkStyleWork: navLink('work'),
+      navLinkStyleStack: navLink('stack'),
+      navLinkStyleNow: navLink('now'),
+      navLinkStyleContact: navLink('contact'),
+      refProgress: this.refProgress,
+      refHero: this.refHero,
+      buildDate: new Date().toISOString().slice(0, 10),
+      skills: this.skills,
+      copyEmail: this.copyEmail,
+      copyLabel: this.state.copyLabel,
+      refAbout: this.refAbout,
+      refWork: this.refWork,
+      refStack: this.refStack,
+      refNow: this.refNow,
+      refContact: this.refContact
+    };
+  }
+}
+</script>
+</body>
+</html>
