@@ -66,7 +66,7 @@ section[data-index]::before {
   font-family: var(--font-heading); font-size: 12px; color: var(--color-neutral-700);
 }
 section[data-index] h6 { color: var(--color-neutral-600); margin: 0 0 6px; }
-section[data-index] h2 { font-size: 30px; margin: 0 0 24px; }
+section[data-index] h2 { font-size: 36px; margin: 0 0 24px; }
 
 /* — hero — */
 #hero {
@@ -79,11 +79,11 @@ section[data-index] h2 { font-size: 30px; margin: 0 0 24px; }
     color-mix(in srgb, var(--color-accent) 18%, transparent), transparent 70%);
 }
 .hero-kicker {
-  font-family: var(--font-heading); font-size: 13px; letter-spacing: 0.08em;
+  font-family: var(--font-heading); font-size: 14px; letter-spacing: 0.08em;
   text-transform: uppercase; color: var(--color-accent); margin: 0 0 12px;
 }
-.hero h1 { font-size: 52px; line-height: 1.08; margin: 0 0 16px; }
-.hero-sub { max-width: 46ch; color: var(--color-neutral-400); font-size: 16px; margin: 0 0 28px; }
+#hero h1 { font-size: clamp(52px, 6vw, 88px); line-height: 1.05; margin: 0 0 16px; }
+.hero-sub { max-width: 46ch; color: var(--color-neutral-400); font-size: 18px; margin: 0 0 28px; }
 .hero-cta { display: flex; gap: var(--space-3); }
 .hero-photo {
   width: 160px; height: 160px; animation: floatY 5s ease-in-out infinite;
@@ -105,7 +105,7 @@ section[data-index] h2 { font-size: 30px; margin: 0 0 24px; }
 .about-copy p:last-child { margin-bottom: 0; }
 .timeline { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 22px; }
 .timeline li { position: relative; padding-left: 22px; border-left: 1px solid var(--color-divider); }
-.timeline p { margin: 8px 0 0; color: var(--color-text); font-size: 14px; }
+.timeline p { margin: 8px 0 0; color: var(--color-text); font-size: 15.5px; }
 
 .proficiency { margin-top: 36px; }
 .proficiency-label {
@@ -113,14 +113,14 @@ section[data-index] h2 { font-size: 30px; margin: 0 0 24px; }
   color: var(--color-neutral-600); margin: 0 0 14px;
 }
 .proficiency-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px 32px; }
-.skill-row { display: flex; justify-content: space-between; gap: var(--space-3); font-size: 13px; margin: 0 0 6px; }
+.skill-row { display: flex; justify-content: space-between; gap: var(--space-3); font-size: 14px; margin: 0 0 6px; }
 .skill-row .name { flex: 1 1 auto; }
 .skill-row .level { flex: 0 0 auto; white-space: nowrap; color: var(--color-neutral-500); }
 .skill-track { height: 4px; border-radius: var(--radius-sm); background: var(--color-neutral-800); overflow: hidden; }
 .skill-fill { height: 100%; border-radius: var(--radius-sm); background: var(--color-accent); }
 
 /* — work — */
-.work-hint { color: var(--color-neutral-500); font-size: 13px; margin: 0 0 20px; }
+.work-hint { color: var(--color-neutral-500); font-size: 14.5px; margin: 0 0 20px; }
 .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: var(--space-4); }
 .project-card {
   cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -149,7 +149,7 @@ section[data-index] h2 { font-size: 30px; margin: 0 0 24px; }
 .now-row { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-bottom: var(--space-4); }
 .now-quote { margin: 0; padding: 0 0 0 18px; border-left: 2px solid var(--color-accent); }
 .now-quote p {
-  font-size: 20px; line-height: 1.4; color: var(--color-accent-300);
+  font-size: 22px; line-height: 1.4; color: var(--color-accent-300);
   margin: 0 0 10px; font-family: var(--font-heading);
 }
 
@@ -167,8 +167,8 @@ section[data-index] h2 { font-size: 30px; margin: 0 0 24px; }
   .nav { padding-left: 8%; padding-right: 6%; gap: var(--space-2); }
   main { max-width: 100%; padding: 48px 6% 0 8%; }
   section[data-index]::before { left: -24px; font-size: 10px; }
-  .hero { grid-template-columns: 1fr; }
+  #hero { grid-template-columns: 1fr; }
   .hero-photo { order: -1; width: 96px; height: 96px; }
   .hero-photo-slot { width: 96px; height: 96px; }
-  .hero h1 { font-size: 38px; }
+  #hero h1 { font-size: 48px; }
 }
