@@ -4,6 +4,8 @@
    styles.css variables. Structure follows the "Portfolio" design authored
    in Claude Design (design-handoff/Portfolio.dc.html) pixel-for-pixel. */
 
+:root { --content-width: 960px; }
+
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -21,11 +23,17 @@ body { margin: 0; }
 .skip-link:focus { left: 0; top: 0; }
 
 /* — sticky nav + scroll-progress bar — */
-.nav {
+/* .nav-bar carries the full-bleed sticky background/blur; .nav constrains its
+   content to the same column as main so brand/links line up with the page's
+   text edges instead of spanning the whole viewport on wide screens. */
+.nav-bar {
   position: sticky; top: 0; z-index: 50;
-  padding-left: 12%; padding-right: 8%;
   background: color-mix(in srgb, var(--color-bg) 90%, transparent);
   backdrop-filter: blur(6px);
+}
+.nav {
+  max-width: var(--content-width); margin: 0 auto;
+  padding-left: 12%; padding-right: 8%;
   flex-wrap: wrap;
 }
 .nav a[aria-current='location'] { color: var(--color-accent); }
@@ -34,7 +42,7 @@ body { margin: 0; }
 }
 .progress-fill { height: 2px; width: 0%; background: var(--color-accent); }
 
-main { max-width: 760px; margin: 0 auto; padding: 64px 8% 0 12%; }
+main { max-width: var(--content-width); margin: 0 auto; padding: 64px 8% 0 12%; }
 
 /* — fading divider between sections — */
 .divider {
@@ -149,7 +157,7 @@ section[data-index] h2 { font-size: 30px; margin: 0 0 24px; }
 /* — responsive — */
 @media (max-width: 640px) {
   .nav { padding-left: 8%; padding-right: 6%; gap: var(--space-2); }
-  main { padding: 48px 6% 0 8%; }
+  main { max-width: 100%; padding: 48px 6% 0 8%; }
   section[data-index]::before { left: -24px; font-size: 10px; }
   .hero { grid-template-columns: 1fr; }
   .hero-photo { order: -1; width: 96px; height: 96px; }
