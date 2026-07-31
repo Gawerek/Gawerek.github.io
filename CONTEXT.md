@@ -47,27 +47,41 @@ into AI/ML infrastructure — not a hard rebrand away from infra work.
   Vercel / Netlify) to start
 
 ## Design direction (already prototyped — see files below)
-Concept: infrastructure blueprints / technical drawings, since the subject
-matter (IaC, provisioning, golden images) literally *is* the practice of
-drafting infrastructure. Site is structured as a set of numbered "sheets"
-(00 Cover → 05 Contact) with drafting-style furniture: corner registration
-marks, title blocks, revision numbers, a bill-of-materials style stack list.
+v2: built on **Nocturne**, a design system authored in Claude Design
+(claude.ai/design) and synced into this repo via `/design-sync`'s reverse
+flow (pulled the system's `styles.css` down rather than pushed a component
+library up). Retired the earlier "infrastructure blueprint / technical
+drawing" concept (numbered sheets, registration marks, title blocks) in
+favor of Nocturne's own voice: a quiet, compact dark interface.
 
-- Palette: ink navy (#0E1621), blueprint blue (#4A8FE0), amber accent
-  (#E8A33D), warm paper (#ECE7DA), slate greys for secondary text
-- Type: Space Grotesk (display), IBM Plex Sans (body), IBM Plex Mono
-  (labels/data) — all via Google Fonts
-- Signature element: an animated SVG schematic in the hero showing
-  AWS/Azure → provisioning pipeline → golden image → deployed VM, with
-  connector lines drawing in on load
+- Palette: near-neutral dark ground (`--color-bg` #161826, `--color-surface`
+  #232532), text #e9e9ed, single blurple accent #9184d9 used as a line/glow
+  rather than a flood — OKLCH tonal ramps for neutrals and accent
+- Type: Inter throughout (heading + body), medium (500) weight for headings
+- Layout: left-aligned, asymmetric; outlined buttons (never solid-filled);
+  rules fade to transparent at their ends instead of stopping cleanly; one
+  saturated deep-indigo band (the stat strip) as the page's single
+  "presence" move, everywhere else desaturated
+- `styles.css` = Nocturne's own token + component sheet, unmodified except
+  for trimming components the portfolio doesn't use (forms, dialog).
+  `page.css` = portfolio-specific layout only — page sizing/rhythm, no
+  hardcoded colors/fonts; everything visual comes from `styles.css`
+  variables. Retune the look by editing tokens in `styles.css`, not by
+  hardcoding values in `page.css`.
 - Fully static (no framework), responsive, respects
-  `prefers-reduced-motion`, keyboard-focus visible
+  `prefers-reduced-motion`, keyboard-focus visible (`:focus-visible` accent
+  ring, per Nocturne's interaction-state spec)
 
-Prototype files (index.html, styles.css, script.js) are included alongside
-this brief as a v1 reference. Treat them as a starting point to critique
-and refine, not a final answer — in particular the placeholder contact
-details and generic project descriptions need replacing with real info
-before this goes live.
+If Nocturne's source project in Claude Design changes later, re-run
+`/design-sync` (or manually re-fetch `styles.css` via the `DesignSync`
+tool's `get_file` against project "Nocturne") and re-check the class names
+in `index.html` still match — this repo's copy is a point-in-time pull, not
+a live sync.
+
+Current files (index.html, styles.css, page.css, script.js) are a v2
+reference. In particular the placeholder contact details and generic
+project descriptions still need replacing with real info before this goes
+live.
 
 ## Technical / deployment
 - Static site — no backend needed

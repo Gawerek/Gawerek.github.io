@@ -6,30 +6,34 @@
     buildDate.textContent = new Date().toISOString().slice(0, 10);
   }
 
-  const schematic = document.querySelector(".schematic");
-  if (schematic && !prefersReducedMotion) {
-    requestAnimationFrame(() => schematic.classList.add("is-drawn"));
-  }
-
-  const revealTargets = document.querySelectorAll(".reveal");
-  if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+  const revealTargets = [...document.querySelectorAll(".reveal")];
+  if (prefersReducedMotion || location.hash) {
+    // A direct #hash load lands mid-page with nothing scrolled past yet, so
+    // content above the target would otherwise sit invisible until the next
+    // scroll — just show everything instead of animating in this case.
     revealTargets.forEach((el) => el.classList.add("is-visible"));
   } else {
-    const revealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-    revealTargets.forEach((el) => revealObserver.observe(el));
+    // Polled per frame against actual layout rather than IntersectionObserver:
+    // a fast flick-scroll, scrollbar drag, or direct #hash navigation can jump
+    // past an element's intersection window between observer samples, leaving
+    // it stuck at opacity 0. Checking getBoundingClientRect() every frame
+    // can't be outrun the same way.
+    let pending = revealTargets;
+    const checkReveal = () => {
+      pending = pending.filter((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.9 && rect.bottom > 0) {
+          el.classList.add("is-visible");
+          return false;
+        }
+        return true;
+      });
+      if (pending.length) requestAnimationFrame(checkReveal);
+    };
+    requestAnimationFrame(checkReveal);
   }
 
-  const navLinks = document.querySelectorAll(".sheet-nav__link");
+  const navLinks = document.querySelectorAll("[data-nav]");
   const sections = [...navLinks]
     .map((link) => document.querySelector(link.getAttribute("href")))
     .filter(Boolean);
@@ -38,11 +42,11 @@
     const navObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          const link = document.querySelector(`.sheet-nav__link[href="#${entry.target.id}"]`);
+          const link = document.querySelector(`[data-nav][href="#${entry.target.id}"]`);
           if (!link) return;
           if (entry.isIntersecting) {
             navLinks.forEach((l) => l.removeAttribute("aria-current"));
-            link.setAttribute("aria-current", "true");
+            link.setAttribute("aria-current", "location");
           }
         });
       },
