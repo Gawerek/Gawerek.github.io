@@ -6,25 +6,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  --color-bg: #12190f;
-  --color-surface: #1b2418;
+  --color-bg: #1a2416;
+  --color-surface: #232f1f;
   --color-text: #ece9e0;
   --color-accent: #1f7a43;
   --color-accent-2: #2c8f52;
-  --color-divider: color-mix(in srgb, #ece9e0 16%, transparent);
+  --color-divider: color-mix(in srgb, #ece9e0 20%, transparent);
 
   /* Tonal ramps — generated in OKLCH on one shared lightness scale, so the
      same step of any role matches the others in visual value. Warm-shifted
-     to sit with the forest-green ground. */
+     to sit with the forest-green ground. Neutral-500/600/700 (the ones
+     driving most muted/secondary text — section labels, hints, dividers)
+     were lightened a second pass after live feedback that they read as
+     too dark against the bg/surface bump above. */
   --color-neutral-100: #f2f1e9;
   --color-neutral-200: #e0e0d4;
   --color-neutral-300: #c7c8ba;
   --color-neutral-400: #a9ac9c;
-  --color-neutral-500: #8b8f7d;
-  --color-neutral-600: #6d7160;
-  --color-neutral-700: #52564a;
+  --color-neutral-500: #9fa293;
+  --color-neutral-600: #878c78;
+  --color-neutral-700: #6a6f5f;
   --color-neutral-800: #393c33;
-  --color-neutral-900: #24261f;
+  --color-neutral-900: #2c2e26;
 
   --color-accent-100: #e3f4ea;
   --color-accent-200: #c3e6d0;
@@ -134,12 +137,16 @@ figcaption {
 .card {
   display: flex; flex-direction: column; gap: var(--space-2);
   padding: var(--space-4); border-radius: var(--radius-md); background: var(--color-surface);
-  /* surface (#1b2418) sits only ~9-11 rgb steps above bg (#12190f) — without
-     a border/shadow a card reads as a faint, undefined patch rather than a
-     distinct raised element, and its own padding becomes invisible along
-     with it. */
+  /* surface sits close to bg — without a border/shadow a card reads as a
+     faint, undefined patch rather than a distinct raised element, and its
+     own padding becomes invisible along with it. */
   border: 1px solid var(--color-divider);
   box-shadow: var(--shadow-sm);
+  /* project-card is a <button>; without this its text-content children
+     (card-title, card-body) fall back to the UA default ButtonText color
+     (black) instead of inheriting the page's theme, since the browser
+     applies that color directly to the button element itself. */
+  color: var(--color-text);
 }
 .card-kicker { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent); }
 .card-title {
