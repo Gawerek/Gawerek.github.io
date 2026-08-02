@@ -75,9 +75,23 @@ default blurple/blue-grey, per the handoff's `:root` override:
   warm-shifted neutral ramp — all layered over Nocturne's component classes
   (`.btn`, `.card`, `.tag`, `.nav`, `.dialog`, `.lighten`)
 - Type: Inter throughout, weight 500 for headings, never bolder
-- Layout: asymmetric left-heavy padding (`padding: 64px 8% 0 12%`), max
-  content width 760px, numbered section marks (01–05) in the left margin,
-  1px dividers between sections that fade to transparent at both ends
+- Layout: asymmetric left-heavy padding, numbered section marks (01–05) in
+  the left margin, 1px dividers between sections that fade to transparent
+  at both ends
+- **Fluid, not breakpoint-based**: after live feedback that the fixed
+  760px/960px column looked cramped and empty at once on a real wide
+  monitor, `--content-width` and nearly every font-size became
+  `clamp()`/`vw`-driven so the page scales continuously with the viewport
+  instead of jumping between two or three fixed sizes. Checked directly
+  against v4.brittanychiang.com (measured its actual rendered sizes — 80px
+  hero name, 17px body, 18px nav — not just screenshots) as a fidelity
+  bar; our hero now fills ~86vh on load with a three-tier headline (small
+  role kicker → huge name → large tagline line) in the same spirit. Only
+  the hero/nav grid's column-count switch and a couple of small
+  safety tweaks remain in an actual media query — everything else is
+  fluid by construction. When adding new text, size it with `clamp()`
+  against the pattern already in `page.css`/`styles.css`, not a bare `px`
+  or `%`.
 - Interactions (all specified in the handoff, "final — recreate
   pixel-perfectly"): sticky nav with a 2px scroll-progress bar; active nav
   link tracks scroll position via `IntersectionObserver`; hero has a

@@ -4,7 +4,11 @@
    styles.css variables. Structure follows the "Portfolio" design authored
    in Claude Design (design-handoff/Portfolio.dc.html) pixel-for-pixel. */
 
-:root { --content-width: 960px; }
+/* Fluid column: scales continuously with viewport width instead of jumping
+   between a couple of fixed breakpoints — 90vw of the viewport, floored at
+   320px (smallest supported phone) and capped at 1200px (past that, line
+   length starts hurting readability more than the extra width helps). */
+:root { --content-width: clamp(320px, 90vw, 1200px); }
 
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) {
@@ -49,7 +53,7 @@ body { margin: 0; }
 
 main {
   max-width: var(--content-width); margin: 0 auto;
-  padding: 64px calc(var(--content-width) * 0.08) 0 calc(var(--content-width) * 0.12);
+  padding: clamp(32px, 6vw, 80px) calc(var(--content-width) * 0.08) 0 calc(var(--content-width) * 0.12);
 }
 
 /* — fading divider between sections — */
@@ -59,19 +63,24 @@ main {
 }
 
 /* — section shell: numbered margin mark — */
-section[data-index] { padding: 24px 0 72px; position: relative; }
+section[data-index] { padding: clamp(24px, 4vw, 40px) 0 clamp(56px, 9vw, 104px); position: relative; }
 section[data-index]::before {
   content: attr(data-index);
   position: absolute; left: -40px; top: 26px;
   font-family: var(--font-heading); font-size: 12px; color: var(--color-neutral-700);
 }
 section[data-index] h6 { color: var(--color-neutral-600); margin: 0 0 6px; }
-section[data-index] h2 { font-size: 36px; margin: 0 0 24px; }
+section[data-index] h2 { font-size: clamp(28px, 2.4vw + 18px, 44px); margin: 0 0 24px; }
 
 /* — hero — */
+/* Fills most of the first viewport, like a landing splash, rather than
+   sitting as a small fixed-height block — the whole point being that this
+   scales with however tall/wide the user's screen actually is. */
 #hero {
-  padding: 24px 0 72px; display: grid; grid-template-columns: 1fr auto;
-  gap: 32px; align-items: center; position: relative; overflow: hidden;
+  min-height: 86vh;
+  padding: clamp(24px, 4vw, 48px) 0 clamp(48px, 8vw, 96px);
+  display: grid; grid-template-columns: 1fr auto; align-content: center;
+  gap: clamp(24px, 4vw, 48px); align-items: center; position: relative; overflow: hidden;
 }
 .hero-glow {
   position: absolute; inset: 0; pointer-events: none;
@@ -79,17 +88,23 @@ section[data-index] h2 { font-size: 36px; margin: 0 0 24px; }
     color-mix(in srgb, var(--color-accent) 18%, transparent), transparent 70%);
 }
 .hero-kicker {
-  font-family: var(--font-heading); font-size: 14px; letter-spacing: 0.08em;
+  font-family: var(--font-heading); font-size: clamp(13px, 0.4vw + 12px, 16px); letter-spacing: 0.08em;
   text-transform: uppercase; color: var(--color-accent); margin: 0 0 12px;
 }
-#hero h1 { font-size: clamp(52px, 6vw, 88px); line-height: 1.05; margin: 0 0 16px; }
-.hero-sub { max-width: 46ch; color: var(--color-neutral-400); font-size: 18px; margin: 0 0 28px; }
+#hero h1 { font-size: clamp(56px, 7vw + 12px, 128px); line-height: 1.02; margin: 0 0 8px; }
+.hero-tagline {
+  font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+  font-size: clamp(28px, 3vw + 12px, 56px); line-height: 1.1;
+  color: var(--color-neutral-400); margin: 0 0 24px;
+}
+.hero-sub { max-width: 46ch; color: var(--color-neutral-400); font-size: clamp(16px, 0.4vw + 14px, 19px); margin: 0 0 28px; }
 .hero-cta { display: flex; gap: var(--space-3); }
 .hero-photo {
-  width: 160px; height: 160px; animation: floatY 5s ease-in-out infinite;
+  width: clamp(96px, 12vw, 200px); height: clamp(96px, 12vw, 200px);
+  animation: floatY 5s ease-in-out infinite;
 }
 .hero-photo-slot {
-  width: 160px; height: 160px; border-radius: 50%;
+  width: 100%; height: 100%; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   background: var(--color-surface); border: 1px dashed var(--color-neutral-600);
   color: var(--color-neutral-500); font-size: 11px; text-align: center; padding: var(--space-2);
@@ -105,7 +120,7 @@ section[data-index] h2 { font-size: 36px; margin: 0 0 24px; }
 .about-copy p:last-child { margin-bottom: 0; }
 .timeline { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 22px; }
 .timeline li { position: relative; padding-left: 22px; border-left: 1px solid var(--color-divider); }
-.timeline p { margin: 8px 0 0; color: var(--color-text); font-size: 15.5px; }
+.timeline p { margin: 8px 0 0; color: var(--color-text); font-size: clamp(14px, 0.3vw + 13px, 16.5px); }
 
 .proficiency { margin-top: 36px; }
 .proficiency-label {
@@ -113,14 +128,14 @@ section[data-index] h2 { font-size: 36px; margin: 0 0 24px; }
   color: var(--color-neutral-600); margin: 0 0 14px;
 }
 .proficiency-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px 32px; }
-.skill-row { display: flex; justify-content: space-between; gap: var(--space-3); font-size: 14px; margin: 0 0 6px; }
+.skill-row { display: flex; justify-content: space-between; gap: var(--space-3); font-size: clamp(13px, 0.2vw + 12px, 15px); margin: 0 0 6px; }
 .skill-row .name { flex: 1 1 auto; }
 .skill-row .level { flex: 0 0 auto; white-space: nowrap; color: var(--color-neutral-500); }
 .skill-track { height: 4px; border-radius: var(--radius-sm); background: var(--color-neutral-800); overflow: hidden; }
 .skill-fill { height: 100%; border-radius: var(--radius-sm); background: var(--color-accent); }
 
 /* — work — */
-.work-hint { color: var(--color-neutral-500); font-size: 14.5px; margin: 0 0 20px; }
+.work-hint { color: var(--color-neutral-500); font-size: clamp(13px, 0.2vw + 12px, 15px); margin: 0 0 20px; }
 .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: var(--space-4); }
 .project-card {
   cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -149,7 +164,7 @@ section[data-index] h2 { font-size: 36px; margin: 0 0 24px; }
 .now-row { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-bottom: var(--space-4); }
 .now-quote { margin: 0; padding: 0 0 0 18px; border-left: 2px solid var(--color-accent); }
 .now-quote p {
-  font-size: 22px; line-height: 1.4; color: var(--color-accent-300);
+  font-size: clamp(19px, 1.4vw + 14px, 30px); line-height: 1.4; color: var(--color-accent-300);
   margin: 0 0 10px; font-family: var(--font-heading);
 }
 
@@ -163,12 +178,13 @@ section[data-index] h2 { font-size: 36px; margin: 0 0 24px; }
 .rev-note { font-size: 11px; margin-top: 44px; }
 
 /* — responsive — */
+/* Almost everything above already scales continuously via clamp()/vw against
+   the fluid --content-width, so this is down to the two things clamp() can't
+   do: switch a grid from two columns to one, and keep the nav's gap sane
+   once it wraps to a second line. */
 @media (max-width: 640px) {
-  .nav { padding-left: 8%; padding-right: 6%; gap: var(--space-2); }
-  main { max-width: 100%; padding: 48px 6% 0 8%; }
+  .nav { gap: var(--space-2); }
   section[data-index]::before { left: -24px; font-size: 10px; }
   #hero { grid-template-columns: 1fr; }
-  .hero-photo { order: -1; width: 96px; height: 96px; }
-  .hero-photo-slot { width: 96px; height: 96px; }
-  #hero h1 { font-size: 48px; }
+  .hero-photo { order: -1; }
 }
