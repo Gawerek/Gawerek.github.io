@@ -36,13 +36,13 @@ body { margin: 0; }
   backdrop-filter: blur(6px);
 }
 .nav {
-  max-width: var(--content-width); margin: 0 auto;
-  /* calc() against --content-width, not a bare percentage: percentage
-     padding resolves against the parent's (full-viewport) width, not this
-     element's own max-width, which was silently ballooning the gutter on
-     wide screens and squeezing the actual content inward. */
-  padding-left: calc(var(--content-width) * 0.12);
-  padding-right: calc(var(--content-width) * 0.08);
+  /* Edge-to-edge, unlike main's content column — brand sits near the left
+     edge of the viewport and the link/resume cluster near the right edge
+     (nav-brand's margin-right:auto in styles.css does that split), matching
+     the full-bleed nav treatment on v4.brittanychiang.com rather than
+     mirroring main's narrower reading column. */
+  padding-left: clamp(20px, 5vw, 64px);
+  padding-right: clamp(20px, 5vw, 64px);
   flex-wrap: wrap;
 }
 .nav a[aria-current='location'] { color: var(--color-accent); }
@@ -55,6 +55,34 @@ main {
   max-width: var(--content-width); margin: 0 auto;
   padding: clamp(32px, 6vw, 80px) calc(var(--content-width) * 0.08) 0 calc(var(--content-width) * 0.12);
 }
+
+/* — fixed side rails — */
+/* Social icons pinned to the left edge and the email address pinned to the
+   right edge, each anchored to the bottom of the viewport with a fading
+   line running up from them — the same device v4.brittanychiang.com uses to
+   fill the empty gutters either side of its content column. Hidden once the
+   viewport's too narrow to have a gutter worth filling. */
+.side {
+  position: fixed; bottom: 0; z-index: 40;
+  display: flex; flex-direction: column; align-items: center;
+}
+.side-left { left: clamp(16px, 3vw, 40px); }
+.side-right { right: clamp(16px, 3vw, 40px); }
+.side-icons { list-style: none; margin: 0 0 20px; padding: 0; display: flex; flex-direction: column; gap: 18px; }
+.side-icons a {
+  display: block; color: var(--color-neutral-400);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.side-icons a:hover, .side-icons a:focus-visible { color: var(--color-accent); transform: translateY(-3px); }
+.side-email {
+  writing-mode: vertical-rl; text-orientation: mixed;
+  font-family: var(--font-heading); font-size: 12px; letter-spacing: 0.05em;
+  color: var(--color-neutral-400); text-decoration: none; margin-bottom: 20px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+.side-email:hover, .side-email:focus-visible { color: var(--color-accent); transform: translateY(-3px); }
+.side-line { width: 1px; height: 90px; background: var(--color-neutral-700); }
+@media (max-width: 900px) { .side { display: none; } }
 
 /* — fading divider between sections — */
 .divider {
