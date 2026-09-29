@@ -139,8 +139,10 @@
   // — copy email —
   const copyBtn = document.getElementById("copy-email-btn");
   if (copyBtn) {
+    const mailLink = copyBtn.parentElement.querySelector('a[href^="mailto:"]');
+    const email = mailLink ? mailLink.href.replace("mailto:", "") : "";
     copyBtn.addEventListener("click", () => {
-      navigator.clipboard.writeText("hello@example.com").then(() => {
+      navigator.clipboard.writeText(email).then(() => {
         copyBtn.textContent = "Copied!";
         setTimeout(() => {
           copyBtn.textContent = "Copy email";
