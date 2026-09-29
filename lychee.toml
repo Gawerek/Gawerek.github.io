@@ -8,13 +8,13 @@ timeout = 20
 # Some hosts rate-limit or reject HEAD; treat 429 as OK rather than flaky-failing CI.
 accept = ["200..=299", "429"]
 
-# Don't check mailto: addresses (placeholder hello@example.com, and SMTP probing is unreliable anyway).
+# Don't check mailto: addresses (SMTP probing is unreliable).
 include_mail = false
 
 exclude = [
   # LinkedIn returns HTTP 999 to non-browser clients.
   'linkedin\.com',
-  # Placeholder contact URLs (github.com/REPLACE_ME etc.) until real details are filled in.
+  # Placeholder contact URLs (linkedin.com/in/REPLACE_ME) until real details are filled in.
   'REPLACE_ME',
   '^mailto:',
   # TODO: the nav's "Resume" button points at ./resume.pdf, which doesn't exist yet.
