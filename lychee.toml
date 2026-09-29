@@ -14,8 +14,6 @@ include_mail = false
 exclude = [
   # LinkedIn returns HTTP 999 to non-browser clients.
   'linkedin\.com',
-  # Placeholder contact URLs (linkedin.com/in/REPLACE_ME) until real details are filled in.
-  'REPLACE_ME',
   '^mailto:',
   # TODO: the nav's "Resume" button points at ./resume.pdf, which doesn't exist yet.
   # Remove this exclusion once the PDF is committed so the link is checked for real.

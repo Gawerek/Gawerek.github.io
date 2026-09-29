@@ -39,7 +39,7 @@ into AI/ML infrastructure — not a hard rebrand away from infra work.
 
 ## What's still missing (need Michał to supply before publishing)
 - Full name / surname (or confirm first-name-only is intentional)
-- LinkedIn URL (email and GitHub handle `Gawerek` are now set)
+- ~~Contact details~~ — done: email, GitHub `Gawerek` and LinkedIn are all set
 - Whether to name the current employer (Novo Nordisk) explicitly, or keep
   client references generic — check contract/NDA terms either way. Note:
   the v3 design handoff (`design-handoff/Portfolio.dc.html`, built directly
