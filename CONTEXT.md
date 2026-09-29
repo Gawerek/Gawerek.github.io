@@ -145,8 +145,8 @@ Relaxed html-validate rules (JSON can't hold comments, so the reasons live here)
   reader outline). Fix (e.g. make them `<p>`), then set back to error.
 
 lychee exclusions (`lychee.toml`): linkedin.com (answers bots with HTTP
-999), `mailto:`, `REPLACE_ME` placeholder URLs, and `resume.pdf` until the
-real file is committed — remove each exclusion as the placeholder is filled.
+999), `mailto:`, and `resume.pdf` until the real file is committed — remove
+each exclusion as the placeholder is filled.
 
 Lighthouse assertions are warn-level on purpose: it reports without
 blocking. Once scores are stable, flip them to `error` to make it a gate.
