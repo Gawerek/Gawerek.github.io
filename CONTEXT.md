@@ -53,9 +53,10 @@ into AI/ML infrastructure — not a hard rebrand away from infra work.
 - ~~A real headshot photo~~ — done: `assets/photo.jpg` in the hero circle
 - Owner-supplied facts now on the site (all from Michał, not invented): team size is 4; a VM is
   provisioned in "kilkanaście minut" (shown as "under 20 minutes"); the team's platforms keep a
-  fleet of 1,000+ Azure Arc-enabled machines patched. Still open: what "AMC" refers to in his
-  note (not on the site), whether the patching belongs to MCITI specifically, and a real outcome
-  for GIPS. Only figures Michał can stand behind in an interview — never invent.
+  fleet of 1,000+ Azure Arc-enabled machines patched. "AMC" = Azure Machine Configuration (shown
+  in the MCITI dialog and Stack); GIPS images: Windows Server 2019–2025, Amazon Linux, RHEL, Ubuntu
+  across AWS and Azure. Still open: whether the patching belongs to MCITI specifically, and a real
+  outcome for GIPS. Only figures Michał can stand behind in an interview — never invent.
 - Link the copilot repo from its project dialog once its public history is cleaned of secrets
 - Preferred domain name, or default to a free subdomain (GitHub Pages /
   Vercel / Netlify) to start

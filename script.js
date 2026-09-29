@@ -52,7 +52,7 @@
       kicker: "01",
       title: "MCITI",
       detail:
-        "Problem: virtual machines had to be provisioned consistently across two clouds, AWS and Azure. Approach: a multi-cloud provisioning pipeline with infrastructure defined and versioned as code, from network to configured host; one of two platforms I lead on the cloud team. Outcome: a new VM goes from request to configured host in under 20 minutes, repeatable and reviewable instead of hand-built.",
+        "Problem: virtual machines had to be provisioned consistently across two clouds, AWS and Azure. Approach: a multi-cloud provisioning pipeline with infrastructure defined and versioned as code, from network to configured host, with Azure Machine Configuration applied to the machines it provisions; one of two platforms I lead on the cloud team. Outcome: a new VM goes from request to configured host in under 20 minutes, repeatable and reviewable instead of hand-built.",
       tags: ["Terraform", "Bicep", "Ansible", "PowerShell DSC", "GitHub Actions", "Azure DevOps"],
       meta: "Client engagement.",
     },
@@ -60,7 +60,7 @@
       kicker: "02",
       title: "GIPS",
       detail:
-        "Problem: base images needed to stay standardized across AWS and Azure. Approach: a multi-cloud golden image platform producing versioned, standardized base images that feed the provisioning pipeline above. Outcome: every machine starts from the same known, versioned baseline on both clouds.",
+        "Problem: base images needed to stay standardized across AWS and Azure. Approach: a multi-cloud golden image platform producing versioned, standardized base images (Windows Server 2019 through 2025, Amazon Linux, RHEL and Ubuntu) that feed the provisioning pipeline above. Outcome: every machine starts from the same known, versioned baseline on both clouds.",
       // TODO(owner): add a real, quantifiable outcome
       tags: ["Terraform", "Bicep", "Ansible", "PowerShell DSC"],
       meta: "Client engagement.",
