@@ -1,0 +1,26 @@
+# lychee link-checker config — used by the link-check job in .github/workflows/ci.yml.
+# Run locally: lychee --config lychee.toml index.html
+
+# Keep CI output quiet and deterministic.
+no_progress = true
+max_retries = 3
+timeout = 20
+# Some hosts rate-limit or reject HEAD; treat 429 as OK rather than flaky-failing CI.
+accept = ["200..=299", "429"]
+
+# Don't check mailto: addresses (placeholder hello@example.com, and SMTP probing is unreliable anyway).
+include_mail = false
+
+exclude = [
+  # LinkedIn returns HTTP 999 to non-browser clients.
+  'linkedin\.com',
+  # Placeholder contact URLs (github.com/REPLACE_ME etc.) until real details are filled in.
+  'REPLACE_ME',
+  '^mailto:',
+  # TODO: the nav's "Resume" button points at ./resume.pdf, which doesn't exist yet.
+  # Remove this exclusion once the PDF is committed so the link is checked for real.
+  'resume\.pdf$',
+]
+
+# Reference-only folders — never shipped, never checked.
+exclude_path = ["nocturne-reference", "design-handoff"]

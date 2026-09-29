@@ -1,0 +1,11 @@
+{
+  "$schema": "https://html-validate.org/schemas/config.json",
+  "root": true,
+  "extends": ["html-validate:recommended"],
+  "rules": {
+    "no-inline-style": "off",
+    "empty-heading": "off",
+    "element-permitted-content": "warn",
+    "heading-level": "warn"
+  }
+}
