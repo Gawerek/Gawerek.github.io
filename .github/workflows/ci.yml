@@ -1,0 +1,68 @@
+# CI for the static portfolio site.
+#
+# Checks only — deployment is still GitHub Pages' classic "deploy from branch"
+# (main). Nothing here publishes anything. Reference-only folders
+# (nocturne-reference/, design-handoff/) are never shipped and are excluded
+# from every check.
+
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  html-validate:
+    name: HTML validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Validate index.html (html-validate, config in .htmlvalidate.json)
+        run: npx --yes html-validate@9 --formatter stylish index.html
+
+  link-check:
+    name: Link check
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check links in index.html (lychee, config in lychee.toml)
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --config lychee.toml --no-progress index.html
+          fail: true
+          jobSummary: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+  lighthouse:
+    name: Lighthouse
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      # Serves the repo root as static files (staticDistDir ".") and audits
+      # index.html only. Score assertions are warn-level (see lighthouserc.json),
+      # so this job reports but does not block merges yet.
+      - name: Run Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          configPath: ./lighthouserc.json
+          uploadArtifacts: true
+          temporaryPublicStorage: true
