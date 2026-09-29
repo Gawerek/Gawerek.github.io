@@ -66,14 +66,14 @@
       tags: ["Terraform", "Bicep", "Ansible", "PowerShell DSC"],
       meta: "Client engagement.",
     },
-    legal: {
+    copilot: {
       kicker: "03",
-      title: "Legal document automation pipeline",
+      title: "Cloud Cost & Security Copilot",
       detail:
-        "Problem: a law-firm client needed legal documents handled with less manual work. Approach: an independent build of an automated pipeline that ingests, processes, and generates documents, orchestrated end to end with n8n on a Postgres-backed workflow, containerized with Docker and using the Claude API. Outcome: an end-to-end automated document flow for the client.",
-      // TODO(owner): add a real, quantifiable outcome
-      tags: ["n8n", "PostgreSQL", "Docker", "Claude API"],
-      meta: "Independent engagement.",
+        "Problem: cost anomalies and security findings arrive as raw, noisy JSON, and someone has to read them before deciding anything. Approach: n8n and Postgres on a Hetzner VM provisioned with Terraform, with CI running fmt, validate and plan on pull requests; Claude turns each finding into a severity, a likely cause and a suggested next step, posted to Slack. It only summarizes what is in the input, and nothing is changed without human approval. Status: in progress. The input is synthetic for now; wiring it to real Cost Explorer and Security Hub data is the next step.",
+      // TODO(owner): once the repo is cleaned up (see PR notes), add repoUrl: "https://github.com/Gawerek/cloud-cost-security-copilot"
+      tags: ["Terraform", "n8n", "PostgreSQL", "Docker", "Claude API", "Hetzner"],
+      meta: "Personal project, in progress.",
     },
   };
 
@@ -85,6 +85,15 @@
   ];
 
   const dialog = document.getElementById("project-dialog");
+  // Browsers without <dialog>.showModal(): fall back to toggling the `open` attribute
+  // so "View details" still works (no backdrop, focus trap or Esc, but the content shows).
+  if (dialog && typeof dialog.showModal !== "function") {
+    dialog.showModal = () => dialog.setAttribute("open", "");
+    dialog.close = () => {
+      dialog.removeAttribute("open");
+      dialog.dispatchEvent(new Event("close"));
+    };
+  }
   const dialogKicker = document.getElementById("dialog-kicker");
   const dialogTitle = document.getElementById("dialog-title");
   const dialogDetail = document.getElementById("dialog-detail");

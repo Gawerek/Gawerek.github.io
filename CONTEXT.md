@@ -26,14 +26,15 @@ into AI/ML infrastructure — not a hard rebrand away from infra work.
    specifics.
 2. **GIPS** — multi-cloud golden image platform (AWS + Azure).
    Same confidentiality note as above.
-3. **Legal document automation pipeline** — independent build for a law-firm
-   client. Stack: n8n, PostgreSQL, Docker, Claude API. This one is his own
-   engagement, so it can be described in more detail — but still don't name
-   the client without checking.
+3. **Cloud Cost & Security Copilot** — personal, in-progress project (repo:
+   `cloud-cost-security-copilot`). Stack: Terraform, n8n, PostgreSQL, Docker,
+   Claude API, Hetzner. Its README states what is real vs mocked (input data is
+   synthetic for now) — keep the site's wording in line with that. It replaced
+   the earlier "legal document automation" entry: that engagement never
+   happened, so it must not appear anywhere.
 
 **Career trajectory / narrative thread** (soft-sell, not a job title change):
 - Currently: Cloud/DevOps Tech Lead
-- In progress: pursuing AI/ML-focused certifications
 - Exploring: the Forward Deployed Engineer model, applying infra discipline
   directly inside client environments with AI/ML systems in scope
 
@@ -42,17 +43,15 @@ into AI/ML infrastructure — not a hard rebrand away from infra work.
 - ~~Contact details~~ — done: email, GitHub `Gawerek` and LinkedIn are all set
 - ~~Employer naming~~ — done: naming Novo Nordisk is owner-approved, in About and
   in the MCITI/GIPS descriptions only — still no architecture detail, no internal
-  system names beyond MCITI/GIPS, no numbers; the legal-automation client stays
-  unnamed.
+  system names beyond MCITI/GIPS, no numbers.
 - ~~Availability~~ — done: 30-day notice period; open to FDE roles and
   contract/freelance (hero + contact lines say so).
 - ~~Now section / proficiency bars~~ — done: "Now" merged into About's timeline
-  (Now / In progress / Exploring), section marks are 01–04; the self-rated
+  (Now / Exploring), section marks are 01–04; the self-rated
   "Proficiency" bars were removed (Stack covers the skills).
 - ~~A real resume PDF~~ — done: `assets/Michal_Gawron_CV.pdf`, linked from the nav
 - ~~A real headshot photo~~ — done: `assets/photo.jpg` in the hero circle
-- Name the AI/ML certification + target date (`TODO(owner)` in About's timeline)
-- Any real, quantifiable outcomes for the case studies (don't invent numbers)
+- Real, quantifiable outcomes for MCITI/GIPS — only figures Michał can stand behind in an interview\n  (rough-but-true is fine, e.g. ~X environments, provisioning time from days to hours). Never invent.\n- Link the copilot repo from its project dialog once its public history is cleaned of secrets
 - Preferred domain name, or default to a free subdomain (GitHub Pages /
   Vercel / Netlify) to start
 
@@ -99,7 +98,7 @@ default blurple/blue-grey, per the handoff's `:root` override:
   link tracks scroll position via `IntersectionObserver`; hero has a
   cursor-following radial accent glow and a floating circular photo slot;
   project cards open a shared dialog with full case-study detail; stack is
-  three tag clusters (not a table); About holds the Now / In progress / Exploring timeline (the former "Now" section was merged in);
+  three tag clusters (not a table); About holds the Now / Exploring timeline (the former "Now" section was merged in);
   contact has a working copy-to-clipboard button on the email card
 - `styles.css` = Nocturne's token + component sheet with the green
   override baked into the token values (not a separate override layer —
