@@ -181,6 +181,7 @@ section[data-index] h2 { font-size: clamp(28px, 2.4vw + 18px, 44px); margin: 0 0
 .stack-tags { display: flex; flex-wrap: wrap; gap: 8px; }
 
 /* — contact — */
+.contact-cta { color: var(--color-neutral-300); margin: 0 0 20px; max-width: 60ch; }
 .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-3); max-width: 600px; }
 .contact-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
 .contact-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
