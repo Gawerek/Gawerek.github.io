@@ -72,7 +72,7 @@ the full component/foundation reference pages), but with a bespoke
 deep-forest-green accent and warm neutral ramp layered over Nocturne's
 default blurple/blue-grey, per the handoff's `:root` override:
 
-- Palette: `--color-bg` #12190f, `--color-surface` #1b2418, `--color-text`
+- Palette: `--color-bg` #1a2416, `--color-surface` #232f1f, `--color-text`
   #ece9e0, `--color-accent`/`--color-accent-2` #1f7a43 (mono accent scheme),
   warm-shifted neutral ramp — all layered over Nocturne's component classes
   (`.btn`, `.card`, `.tag`, `.nav`, `.dialog`, `.lighten`)
@@ -136,18 +136,18 @@ checked; `nocturne-reference/` and `design-handoff/` are excluded.
 
 Relaxed html-validate rules (JSON can't hold comments, so the reasons live here):
 - `no-inline-style` off — a handful of deliberate one-off inline styles
-  (skill-bar widths, small button/meta tweaks).
+  (small button/meta tweaks).
 - `empty-heading` off — `#dialog-title` is intentionally empty and filled
   by `script.js` when a project card is opened.
-- `element-permitted-content` warn — **real issue**: project cards are
-  `<button>`s containing `<h3>`/`<p>`/`<div>`, but `<button>` only permits
-  phrasing content. Fix the markup, then set this back to error.
-- `heading-level` warn — **real issue**: `<h6>` eyebrow labels sit directly
-  under the `<h1>` and before each `<h2>`, skipping heading levels (screen
-  reader outline). Fix (e.g. make them `<p>`), then set back to error.
+
+`element-permitted-content` and `heading-level` are back at **error**: the card
+markup (`<article>` + real `<button>`) and the `<p class="eyebrow">` labels fixed
+the two issues that originally justified relaxing them.
 
 lychee exclusions (`lychee.toml`): linkedin.com (answers bots with HTTP
-999) and `mailto:`. The resume PDF is committed, so it is checked for real.
+999), `mailto:`, and the absolute `og:image` URL (`gawerek.github.io/assets/og.png`),
+which 404s on a PR until the file reaches main. The resume PDF is committed, so
+it is checked for real.
 
 Lighthouse assertions are warn-level on purpose: it reports without
 blocking. Once scores are stable, flip them to `error` to make it a gate.

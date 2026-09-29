@@ -119,10 +119,10 @@ section[data-index] h2 { font-size: clamp(28px, 2.4vw + 18px, 44px); margin: 0 0
   font-family: var(--font-heading); font-size: clamp(13px, 0.4vw + 12px, 16px); letter-spacing: 0.08em;
   text-transform: uppercase; color: var(--color-accent-text); margin: 0 0 12px;
 }
-#hero h1 { font-size: clamp(56px, 7vw + 12px, 128px); line-height: 1.02; margin: 0 0 8px; }
+#hero h1 { font-size: clamp(44px, 5.4vw + 12px, 108px); line-height: 1.02; margin: 0 0 8px; }
 .hero-tagline {
   font-family: var(--font-heading); font-weight: var(--font-heading-weight);
-  font-size: clamp(28px, 3vw + 12px, 56px); line-height: 1.1;
+  font-size: clamp(24px, 2.4vw + 12px, 48px); line-height: 1.1;
   color: var(--color-neutral-400); margin: 0 0 24px;
 }
 .hero-sub { max-width: 46ch; color: var(--color-neutral-400); font-size: clamp(16px, 0.4vw + 14px, 19px); margin: 0 0 28px; }
