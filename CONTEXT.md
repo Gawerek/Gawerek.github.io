@@ -38,7 +38,7 @@ into AI/ML infrastructure — not a hard rebrand away from infra work.
   directly inside client environments with AI/ML systems in scope
 
 ## What's still missing (need Michał to supply before publishing)
-- Full name / surname (or confirm first-name-only is intentional)
+- ~~Full name~~ — done: Michał Gawron
 - ~~Contact details~~ — done: email, GitHub `Gawerek` and LinkedIn are all set
 - Whether to name the current employer (Novo Nordisk) explicitly, or keep
   client references generic — check contract/NDA terms either way. Note:
@@ -46,10 +46,8 @@ into AI/ML infrastructure — not a hard rebrand away from infra work.
   in Claude Design) names the employer in the About copy, but the live site
   currently keeps it generic pending explicit confirmation this is OK —
   don't change that without checking first.
-- A real resume PDF — the nav's "Resume ↓" button links to `./resume.pdf`,
-  which doesn't exist yet
-- A real headshot photo — the hero's circular photo slot is currently a
-  placeholder; see the TODO comment in `index.html` for how to drop one in
+- ~~A real resume PDF~~ — done: `assets/Michal_Gawron_CV.pdf`, linked from the nav
+- ~~A real headshot photo~~ — done: `assets/photo.jpg` in the hero circle
 - Any real, quantifiable outcomes for the case studies (don't invent numbers)
 - Preferred domain name, or default to a free subdomain (GitHub Pages /
   Vercel / Netlify) to start
@@ -145,8 +143,7 @@ Relaxed html-validate rules (JSON can't hold comments, so the reasons live here)
   reader outline). Fix (e.g. make them `<p>`), then set back to error.
 
 lychee exclusions (`lychee.toml`): linkedin.com (answers bots with HTTP
-999), `mailto:`, and `resume.pdf` until the real file is committed — remove
-each exclusion as the placeholder is filled.
+999) and `mailto:`. The resume PDF is committed, so it is checked for real.
 
 Lighthouse assertions are warn-level on purpose: it reports without
 blocking. Once scores are stable, flip them to `error` to make it a gate.
