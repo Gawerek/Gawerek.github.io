@@ -15,9 +15,6 @@ exclude = [
   # LinkedIn returns HTTP 999 to non-browser clients.
   'linkedin\.com',
   '^mailto:',
-  # TODO: the nav's "Resume" button points at ./resume.pdf, which doesn't exist yet.
-  # Remove this exclusion once the PDF is committed so the link is checked for real.
-  'resume\.pdf$',
 ]
 
 # Reference-only folders — never shipped, never checked.

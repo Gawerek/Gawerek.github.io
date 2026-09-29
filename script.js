@@ -1,11 +1,6 @@
 (() => {
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  const buildDate = document.getElementById("build-date");
-  if (buildDate) {
-    buildDate.textContent = new Date().toISOString().slice(0, 10);
-  }
-
   // — scroll progress bar —
   const progressFill = document.getElementById("progress-fill");
   if (progressFill) {

@@ -3,7 +3,6 @@
    and warm neutral ramp layered on top (this site's own instance — see the
    "Portfolio" design in Claude Design). Retune the look only by editing the
    tokens below; page-specific layout lives in page.css. */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
   --color-bg: #1a2416;

@@ -38,33 +38,20 @@ into AI/ML infrastructure — not a hard rebrand away from infra work.
   directly inside client environments with AI/ML systems in scope
 
 ## What's still missing (need Michał to supply before publishing)
-- Full name / surname (or confirm first-name-only is intentional)
+- ~~Full name~~ — done: Michał Gawron
 - ~~Contact details~~ — done: email, GitHub `Gawerek` and LinkedIn are all set
-- Whether to name the current employer (Novo Nordisk) explicitly, or keep
-  client references generic — check contract/NDA terms either way. Note:
-  the v3 design handoff (`design-handoff/Portfolio.dc.html`, built directly
-  in Claude Design) names the employer in the About copy, but the live site
-  currently keeps it generic pending explicit confirmation this is OK —
-  don't change that without checking first.
-- UPDATE (content pass): full name is Michał Gawron (confirmed). Naming
-  Novo Nordisk is now owner-approved, in About and in the MCITI/GIPS
-  descriptions only — still no architecture detail, no internal system
-  names beyond MCITI/GIPS, no numbers; the legal-automation client stays
-  unnamed. This supersedes the "keep generic" note above.
-- UPDATE: availability is set — 30-day notice period; interested in FDE
-  roles and contract/freelance (hero + contact lines say so).
-- UPDATE: the "Now" section was merged into About's timeline (Now / In
-  progress / Exploring), section marks are now 01–04; the self-rated
+- ~~Employer naming~~ — done: naming Novo Nordisk is owner-approved, in About and
+  in the MCITI/GIPS descriptions only — still no architecture detail, no internal
+  system names beyond MCITI/GIPS, no numbers; the legal-automation client stays
+  unnamed.
+- ~~Availability~~ — done: 30-day notice period; open to FDE roles and
+  contract/freelance (hero + contact lines say so).
+- ~~Now section / proficiency bars~~ — done: "Now" merged into About's timeline
+  (Now / In progress / Exploring), section marks are 01–04; the self-rated
   "Proficiency" bars were removed (Stack covers the skills).
-- Remaining owner TODOs: name the AI/ML certification + target date
-  (`TODO(owner)` in About's timeline); real quantifiable outcomes for the
-  three project dialogs (`TODO(owner)` in script.js PROJECTS); real email,
-  LinkedIn, GitHub; resume link (CV is at `assets/Michal_Gawron_CV.pdf`,
-  nav still points to `./resume.pdf`); headshot.
-- A real resume PDF — the nav's "Resume ↓" button links to `./resume.pdf`,
-  which doesn't exist yet
-- A real headshot photo — the hero's circular photo slot is currently a
-  placeholder; see the TODO comment in `index.html` for how to drop one in
+- ~~A real resume PDF~~ — done: `assets/Michal_Gawron_CV.pdf`, linked from the nav
+- ~~A real headshot photo~~ — done: `assets/photo.jpg` in the hero circle
+- Name the AI/ML certification + target date (`TODO(owner)` in About's timeline)
 - Any real, quantifiable outcomes for the case studies (don't invent numbers)
 - Preferred domain name, or default to a free subdomain (GitHub Pages /
   Vercel / Netlify) to start
@@ -160,8 +147,7 @@ Relaxed html-validate rules (JSON can't hold comments, so the reasons live here)
   reader outline). Fix (e.g. make them `<p>`), then set back to error.
 
 lychee exclusions (`lychee.toml`): linkedin.com (answers bots with HTTP
-999), `mailto:`, and `resume.pdf` until the real file is committed — remove
-each exclusion as the placeholder is filled.
+999) and `mailto:`. The resume PDF is committed, so it is checked for real.
 
 Lighthouse assertions are warn-level on purpose: it reports without
 blocking. Once scores are stable, flip them to `error` to make it a gate.
