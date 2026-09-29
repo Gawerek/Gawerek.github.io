@@ -1,7 +1,7 @@
 # Portfolio site — project context
 
 ## Who this is for
-Michał — Tech Lead running a 2-person cloud team, engaged as an independent
+Michał — Tech Lead running a 4-person cloud team, engaged as an independent
 contractor (via GalacticQA / emagine) with an enterprise client. Based in
 Warsaw. Works across AWS, Azure, Terraform, Bicep, Ansible, PowerShell DSC,
 Python, GitHub Actions, Azure DevOps Pipelines.
@@ -51,7 +51,12 @@ into AI/ML infrastructure — not a hard rebrand away from infra work.
   "Proficiency" bars were removed (Stack covers the skills).
 - ~~A real resume PDF~~ — done: `assets/Michal_Gawron_CV.pdf`, linked from the nav
 - ~~A real headshot photo~~ — done: `assets/photo.jpg` in the hero circle
-- Real, quantifiable outcomes for MCITI/GIPS — only figures Michał can stand behind in an interview\n  (rough-but-true is fine, e.g. ~X environments, provisioning time from days to hours). Never invent.\n- Link the copilot repo from its project dialog once its public history is cleaned of secrets
+- Owner-supplied facts now on the site (all from Michał, not invented): team size is 4; a VM is
+  provisioned in "kilkanaście minut" (shown as "under 20 minutes"); the team's platforms keep a
+  fleet of 1,000+ Azure Arc-enabled machines patched. Still open: what "AMC" refers to in his
+  note (not on the site), whether the patching belongs to MCITI specifically, and a real outcome
+  for GIPS. Only figures Michał can stand behind in an interview — never invent.
+- Link the copilot repo from its project dialog once its public history is cleaned of secrets
 - Preferred domain name, or default to a free subdomain (GitHub Pages /
   Vercel / Netlify) to start
 

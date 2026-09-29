@@ -52,8 +52,7 @@
       kicker: "01",
       title: "MCITI",
       detail:
-        "Problem: virtual machines had to be provisioned consistently across two clouds, AWS and Azure. Approach: a multi-cloud provisioning pipeline with infrastructure defined and versioned as code, from network to configured host; one of two platforms I lead on the cloud team. Outcome: repeatable, reviewable provisioning instead of hand-built machines.",
-      // TODO(owner): add a real, quantifiable outcome
+        "Problem: virtual machines had to be provisioned consistently across two clouds, AWS and Azure. Approach: a multi-cloud provisioning pipeline with infrastructure defined and versioned as code, from network to configured host; one of two platforms I lead on the cloud team. Outcome: a new VM goes from request to configured host in under 20 minutes, repeatable and reviewable instead of hand-built.",
       tags: ["Terraform", "Bicep", "Ansible", "PowerShell DSC", "GitHub Actions", "Azure DevOps"],
       meta: "Client engagement.",
     },
