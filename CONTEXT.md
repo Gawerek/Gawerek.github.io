@@ -46,6 +46,21 @@ into AI/ML infrastructure — not a hard rebrand away from infra work.
   in Claude Design) names the employer in the About copy, but the live site
   currently keeps it generic pending explicit confirmation this is OK —
   don't change that without checking first.
+- UPDATE (content pass): full name is Michał Gawron (confirmed). Naming
+  Novo Nordisk is now owner-approved, in About and in the MCITI/GIPS
+  descriptions only — still no architecture detail, no internal system
+  names beyond MCITI/GIPS, no numbers; the legal-automation client stays
+  unnamed. This supersedes the "keep generic" note above.
+- UPDATE: availability is set — 30-day notice period; interested in FDE
+  roles and contract/freelance (hero + contact lines say so).
+- UPDATE: the "Now" section was merged into About's timeline (Now / In
+  progress / Exploring), section marks are now 01–04; the self-rated
+  "Proficiency" bars were removed (Stack covers the skills).
+- Remaining owner TODOs: name the AI/ML certification + target date
+  (`TODO(owner)` in About's timeline); real quantifiable outcomes for the
+  three project dialogs (`TODO(owner)` in script.js PROJECTS); real email,
+  LinkedIn, GitHub; resume link (CV is at `assets/Michal_Gawron_CV.pdf`,
+  nav still points to `./resume.pdf`); headshot.
 - A real resume PDF — the nav's "Resume ↓" button links to `./resume.pdf`,
   which doesn't exist yet
 - A real headshot photo — the hero's circular photo slot is currently a
@@ -75,7 +90,7 @@ default blurple/blue-grey, per the handoff's `:root` override:
   warm-shifted neutral ramp — all layered over Nocturne's component classes
   (`.btn`, `.card`, `.tag`, `.nav`, `.dialog`, `.lighten`)
 - Type: Inter throughout, weight 500 for headings, never bolder
-- Layout: asymmetric left-heavy padding, numbered section marks (01–05) in
+- Layout: asymmetric left-heavy padding, numbered section marks (01–04) in
   the left margin, 1px dividers between sections that fade to transparent
   at both ends
 - **Fluid, not breakpoint-based**: after live feedback that the fixed
@@ -97,7 +112,7 @@ default blurple/blue-grey, per the handoff's `:root` override:
   link tracks scroll position via `IntersectionObserver`; hero has a
   cursor-following radial accent glow and a floating circular photo slot;
   project cards open a shared dialog with full case-study detail; stack is
-  three tag clusters (not a table); "Now" section ends in a pull-quote;
+  three tag clusters (not a table); About holds the Now / In progress / Exploring timeline (the former "Now" section was merged in);
   contact has a working copy-to-clipboard button on the email card
 - `styles.css` = Nocturne's token + component sheet with the green
   override baked into the token values (not a separate override layer —

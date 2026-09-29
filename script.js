@@ -57,9 +57,10 @@
       kicker: "01",
       title: "MCITI",
       detail:
-        "Multi-cloud VM provisioning pipeline spanning AWS and Azure — one of two platforms I lead on the cloud team. Infrastructure defined and versioned end to end, from network to configured host.",
+        "Problem: virtual machines had to be provisioned consistently across two clouds, AWS and Azure. Approach: a multi-cloud provisioning pipeline with infrastructure defined and versioned as code, from network to configured host; one of two platforms I lead on the cloud team. Outcome: repeatable, reviewable provisioning instead of hand-built machines.",
+      // TODO(owner): add a real, quantifiable outcome
       tags: ["Terraform", "Bicep", "Ansible", "PowerShell DSC", "GitHub Actions", "Azure DevOps"],
-      meta: "Client engagement — described at a high level; architecture detail withheld.",
+      meta: "Client engagement.",
       repoUrl: "#",
       demoUrl: "#",
     },
@@ -67,9 +68,10 @@
       kicker: "02",
       title: "GIPS",
       detail:
-        "Multi-cloud golden image platform (AWS + Azure) — standardized, versioned base images feeding the provisioning pipeline above, reducing drift between clouds.",
+        "Problem: base images needed to stay standardized across AWS and Azure. Approach: a multi-cloud golden image platform producing versioned, standardized base images that feed the provisioning pipeline above. Outcome: every machine starts from the same known, versioned baseline on both clouds.",
+      // TODO(owner): add a real, quantifiable outcome
       tags: ["Terraform", "Bicep", "Ansible", "PowerShell DSC"],
-      meta: "Client engagement — described at a high level; architecture detail withheld.",
+      meta: "Client engagement.",
       repoUrl: "#",
       demoUrl: "#",
     },
@@ -77,9 +79,10 @@
       kicker: "03",
       title: "Legal document automation pipeline",
       detail:
-        "An independent build for a law-firm client: an automated pipeline that ingests, processes, and generates legal documents, orchestrated end to end with a Postgres-backed workflow engine.",
+        "Problem: a law-firm client needed legal documents handled with less manual work. Approach: an independent build of an automated pipeline that ingests, processes, and generates documents, orchestrated end to end with n8n on a Postgres-backed workflow, containerized with Docker and using the Claude API. Outcome: an end-to-end automated document flow for the client.",
+      // TODO(owner): add a real, quantifiable outcome
       tags: ["n8n", "PostgreSQL", "Docker", "Claude API"],
-      meta: "Independent engagement — client name withheld pending confirmation.",
+      meta: "Independent engagement.",
       repoUrl: "#",
       demoUrl: "#",
     },
