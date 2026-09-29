@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://gawerek.github.io/">
 <meta property="og:image" content="https://gawerek.github.io/assets/og.png">
 <meta property="og:locale" content="en">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -47,10 +47,10 @@
     <a href="#contact" data-nav>Contact</a>
     <a href="assets/Michal_Gawron_CV.pdf" download="Michal_Gawron_CV.pdf" class="btn btn-ghost" style="padding:6px 12px;font-size:12px;margin-left:8px;">Resume ↓</a>
   </nav>
+  <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
 </div>
-<div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
 
-<div class="side side-left" aria-hidden="false">
+<div class="side side-left">
   <ul class="side-icons">
     <li><a href="https://github.com/Gawerek" target="_blank" rel="noopener" aria-label="GitHub">
       <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
@@ -91,7 +91,7 @@
   <hr class="divider">
 
   <section id="about" data-index="01" aria-labelledby="about-title">
-    <h6>About</h6>
+    <p class="eyebrow">About</p>
     <h2 id="about-title">Cloud infra now, AI/ML infra next</h2>
     <div class="about-grid">
       <div class="about-copy">
@@ -116,11 +116,11 @@
   <hr class="divider">
 
   <section id="work" data-index="02" aria-labelledby="work-title">
-    <h6>Selected work</h6>
+    <p class="eyebrow">Selected work</p>
     <h2 id="work-title">Projects</h2>
     <p class="work-hint">Client work described at a high level. Click a project for details.</p>
     <div class="project-grid">
-      <button type="button" class="card project-card" data-project="mciti">
+      <article class="card project-card">
         <span class="card-kicker">01</span>
         <h3 class="card-title">MCITI</h3>
         <p class="card-body">Multi-cloud VM provisioning pipeline spanning AWS and Azure — one of two platforms I lead on the cloud team.</p>
@@ -128,10 +128,10 @@
           <span class="tag tag-neutral">Terraform</span><span class="tag tag-neutral">Bicep</span>
           <span class="tag tag-neutral">Ansible</span><span class="tag tag-neutral">PowerShell DSC</span>
         </div>
-        <span class="btn btn-ghost view-details">View details →</span>
-      </button>
+        <button type="button" class="btn btn-ghost view-details" data-project="mciti">View details →</button>
+      </article>
 
-      <button type="button" class="card project-card" data-project="gips">
+      <article class="card project-card">
         <span class="card-kicker">02</span>
         <h3 class="card-title">GIPS</h3>
         <p class="card-body">Multi-cloud golden image platform (AWS + Azure) — standardized, versioned base images feeding the pipeline above.</p>
@@ -139,10 +139,10 @@
           <span class="tag tag-neutral">Terraform</span><span class="tag tag-neutral">Bicep</span>
           <span class="tag tag-neutral">Ansible</span><span class="tag tag-neutral">PowerShell DSC</span>
         </div>
-        <span class="btn btn-ghost view-details">View details →</span>
-      </button>
+        <button type="button" class="btn btn-ghost view-details" data-project="gips">View details →</button>
+      </article>
 
-      <button type="button" class="card project-card" data-project="legal">
+      <article class="card project-card">
         <span class="card-kicker">03</span>
         <h3 class="card-title">Legal document automation pipeline</h3>
         <p class="card-body">An independent build for a law-firm client: an automated pipeline that ingests, processes, and generates legal documents.</p>
@@ -150,32 +150,28 @@
           <span class="tag tag-neutral">n8n</span><span class="tag tag-neutral">PostgreSQL</span>
           <span class="tag tag-neutral">Docker</span><span class="tag tag-neutral">Claude API</span>
         </div>
-        <span class="btn btn-ghost view-details">View details →</span>
-      </button>
+        <button type="button" class="btn btn-ghost view-details" data-project="legal">View details →</button>
+      </article>
     </div>
   </section>
 
-  <div class="dialog-backdrop" id="dialog-backdrop" hidden>
-    <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="dialog-title">
-      <p class="card-kicker" id="dialog-kicker"></p>
-      <h3 class="dialog-title" id="dialog-title"></h3>
-      <div class="dialog-body">
-        <p id="dialog-detail"></p>
-        <div id="dialog-tags"></div>
-        <p class="text-muted" id="dialog-meta" style="font-size:12px;margin:0;"></p>
-      </div>
-      <div class="dialog-actions">
-        <a href="#" id="dialog-repo" target="_blank" rel="noopener" class="btn btn-secondary">Repo (soon)</a>
-        <a href="#" id="dialog-demo" target="_blank" rel="noopener" class="btn btn-secondary">Live demo (soon)</a>
-        <button type="button" class="btn btn-primary" id="dialog-close">Close</button>
-      </div>
+  <dialog class="dialog" id="project-dialog" aria-labelledby="dialog-title">
+    <p class="card-kicker" id="dialog-kicker"></p>
+    <h3 class="dialog-title" id="dialog-title"></h3>
+    <div class="dialog-body">
+      <p id="dialog-detail"></p>
+      <div id="dialog-tags"></div>
+      <p class="text-muted" id="dialog-meta" style="font-size:12px;margin:0;"></p>
     </div>
-  </div>
+    <div class="dialog-actions" id="dialog-actions">
+      <button type="button" class="btn btn-primary" id="dialog-close">Close</button>
+    </div>
+  </dialog>
 
   <hr class="divider">
 
   <section id="stack" data-index="03" aria-labelledby="stack-title">
-    <h6>Stack</h6>
+    <p class="eyebrow">Stack</p>
     <h2 id="stack-title">Tools &amp; platforms in active use</h2>
     <div class="stack-groups">
       <div>
@@ -206,7 +202,7 @@
   <hr class="divider">
 
   <section id="contact" data-index="04" aria-labelledby="contact-title">
-    <h6>Contact</h6>
+    <p class="eyebrow">Contact</p>
     <h2 id="contact-title">Get in touch</h2>
     <p class="contact-cta">Open to Forward Deployed Engineer roles and contract engagements — available in 30 days.</p>
     <div class="contact-grid">
@@ -214,6 +210,7 @@
         <span class="card-kicker">Email</span>
         <a href="mailto:michal.gawron98@gmail.com"><svg width="16" height="16" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16"><rect x="32" y="56" width="192" height="144" rx="8"/><path d="M32 64l96 88 96-88"/></svg>michal.gawron98@gmail.com</a>
         <button type="button" class="btn btn-ghost" id="copy-email-btn">Copy email</button>
+        <span class="visually-hidden" id="copy-status" role="status" aria-live="polite"></span>
       </div>
       <div class="card contact-card">
         <span class="card-kicker">LinkedIn</span>

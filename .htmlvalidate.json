@@ -5,7 +5,7 @@
   "rules": {
     "no-inline-style": "off",
     "empty-heading": "off",
-    "element-permitted-content": "warn",
-    "heading-level": "warn"
+    "element-permitted-content": "error",
+    "heading-level": "error"
   }
 }
