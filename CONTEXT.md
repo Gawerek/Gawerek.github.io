@@ -39,7 +39,7 @@ into AI/ML infrastructure — not a hard rebrand away from infra work.
 
 ## What's still missing (need Michał to supply before publishing)
 - Full name / surname (or confirm first-name-only is intentional)
-- Real contact details: email, LinkedIn URL, GitHub handle
+- ~~Contact details~~ — done: email, GitHub `Gawerek` and LinkedIn are all set
 - Whether to name the current employer (Novo Nordisk) explicitly, or keep
   client references generic — check contract/NDA terms either way. Note:
   the v3 design handoff (`design-handoff/Portfolio.dc.html`, built directly
@@ -118,3 +118,44 @@ repo's copy is a point-in-time pull, not a live sync.
   Vercel, or Netlify (any works fine for a static site; GitHub Pages is
   free and simplest if a custom domain isn't needed yet)
 - Custom domain: optional, not yet decided
+
+### CI (`.github/workflows/ci.yml`)
+Runs on every pull request, on push to `main`, and manually
+(`workflow_dispatch`). Read-only (`permissions: contents: read`), superseded
+runs on the same PR/branch are cancelled, and it does **not** deploy — Pages
+still publishes from the `main` branch as before. Only shipped files are
+checked; `nocturne-reference/` and `design-handoff/` are excluded.
+
+| Job | What it does | Config | Run locally |
+|---|---|---|---|
+| `html-validate` | Validates `index.html` against `html-validate:recommended` | `.htmlvalidate.json` | `npx --yes html-validate@9 index.html` |
+| `link-check` | lychee checks every link in `index.html` (local files + external URLs) | `lychee.toml` | `lychee --config lychee.toml index.html` (install: `winget install lycheeverse.lychee` / `brew install lychee` / `cargo install lychee`) |
+| `lighthouse` | Lighthouse CI serves the repo root statically and audits `index.html` 3×; warns if performance / accessibility / best-practices / SEO < 0.9; report uploaded to temporary public storage + as a workflow artifact | `lighthouserc.json` | `npx --yes @lhci/cli@0.14 autorun` (needs Chrome) |
+
+Relaxed html-validate rules (JSON can't hold comments, so the reasons live here):
+- `no-inline-style` off — a handful of deliberate one-off inline styles
+  (skill-bar widths, small button/meta tweaks).
+- `empty-heading` off — `#dialog-title` is intentionally empty and filled
+  by `script.js` when a project card is opened.
+- `element-permitted-content` warn — **real issue**: project cards are
+  `<button>`s containing `<h3>`/`<p>`/`<div>`, but `<button>` only permits
+  phrasing content. Fix the markup, then set this back to error.
+- `heading-level` warn — **real issue**: `<h6>` eyebrow labels sit directly
+  under the `<h1>` and before each `<h2>`, skipping heading levels (screen
+  reader outline). Fix (e.g. make them `<p>`), then set back to error.
+
+lychee exclusions (`lychee.toml`): linkedin.com (answers bots with HTTP
+999), `mailto:`, and `resume.pdf` until the real file is committed — remove
+each exclusion as the placeholder is filled.
+
+Lighthouse assertions are warn-level on purpose: it reports without
+blocking. Once scores are stable, flip them to `error` to make it a gate.
+
+Possible next steps (need the repo owner, not just a PR):
+- Switch **Settings → Pages → Source** from "Deploy from a branch" to
+  "GitHub Actions" and add a deploy job (`actions/upload-pages-artifact` +
+  `actions/deploy-pages`) that `needs:` the CI jobs, so a failing check
+  blocks publishing. That job would also be the place to ship only the site
+  files and leave the reference folders out of the published site.
+- Make the CI jobs required status checks via branch protection on `main`.
+- Pin actions to commit SHAs and add Dependabot for `github-actions` updates.
